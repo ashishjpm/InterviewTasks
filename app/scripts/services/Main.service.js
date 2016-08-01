@@ -10,13 +10,6 @@
  * @author Ashish Mishra <ashishjpm@gmail.com>
  */
 angular.module('interviewTasks.services')
-.factory('MainService', function ($http, Settings, $state, Properties, $log) {
-    
-    function getDimLvl(){
-    }
-    
-  return {
-      getDimLvl: getDimLvl
-  };
+.factory('MainService', function ($http, Settings, $state, $log) {
 
 });
