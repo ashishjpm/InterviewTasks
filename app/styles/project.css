@@ -1,0 +1,39 @@
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none;   /* Chrome/Safari/Opera */
+  -khtml-user-select: none;    /* Konqueror */
+  -moz-user-select: none;      /* Firefox */
+  -ms-user-select: none;       /* Internet Explorer/Edge */
+  user-select: none;           /* Non-prefixed version, currently
+                                  not supported by any browser */
+}
+.center-align{
+    text-align: center;
+}
+.mrg-tp-25{
+    margin-top: 25px;
+}
+.heading{
+    text-align: center;
+    font-weight: 600;
+    font-size: 40px;
+    margin: 20px;
+}
+.seat-checkbox{
+    margin: 10px;
+    padding: 10px;
+    display: inline-block;
+    width: 50px;
+    text-align: center;
+    border: 1px solid;
+}
+.seat-checkbox-red{
+    background: red;
+}
+.seat-checkbox-green{
+    background: green;
+}
+.seat-selection-wpr{
+    padding: 40px;
+    margin: 50px;
+}

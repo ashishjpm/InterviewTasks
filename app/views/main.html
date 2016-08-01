@@ -1,1 +1,31 @@
-hello! this is abstract copy of project, pls checkout to specific branch.
+<div>
+    <div class="heading">
+        Movie Seat Reservation
+    </div>
+    <div class="center-align mrg-tp-25 col-md-12">
+        <span class="col-md-6">
+            Name: 
+            <input ng-model="name" type="text">
+        </span>
+        <span class="col-md-6">
+            Number of seats:
+            <input ng-model="numberOfSeats" type="number">
+        </span>
+    </div>
+    <div class="center-align">
+        <button class="btn mrg-tp-25" ng-click="startSelecting()">Start Selecting</button>
+    </div>
+</div>
+
+<div class="seat-selection-wpr">
+    <div ng-class="['seat-checkbox', 'noselect', {'seat-checkbox-red':item.status==0}, {'seat-checkbox-green':item.status==2}]" ng-click="seatClicked($index)" ng-repeat="item in seatStatus track by $index">
+        {{$index}}
+    </div>
+    <div class="center-align mrg-tp-25">
+        <button class="btn" ng-click="cnfrmClicked()">Confirm Selection</button>
+    </div>
+</div>
+
+<div>
+<!--    TODO: Display table in this area-->
+</div>

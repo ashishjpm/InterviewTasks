@@ -10,4 +10,5 @@
  */
 angular.module('interviewTasks.services')
   .constant('Settings', {
+    'numberOfSeats': 120
   });
