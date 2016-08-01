@@ -18,6 +18,7 @@ angular.module('interviewTasks.controllers')
         $scope.name='';
         $scope.numberOfSeats = 0;
         $scope.seatStatus = [];
+//        $scope.inSeatSelection = false;
         
         //status => 0: unavailable, 1: available, 2: selected;
         for(var i=0; i<numberOfSeats; i++){
@@ -27,10 +28,21 @@ angular.module('interviewTasks.controllers')
             }
         }
     }
+    function resetCurrent(){
+        for(var i=0; i<numberOfSeats; i++){
+            $scope.seatStatus[i].status=($scope.seatStatus[i].status == 2)?1:$scope.seatStatus[i].status;
+        }
+    }
     
     $scope.startSelecting = function(){
-        userName = $scope.name;
-        seatForUser = $scope.numberOfSeats;
+        if(($scope.name != '') && ($scope.numberOfSeats > 0)){
+            resetCurrent();
+            userName = $scope.name;
+            seatForUser = $scope.numberOfSeats;
+//            $scope.inSeatSelection = true;
+        }
+        else
+            alert("Name should not be empty and number of seats should be greater than 0");
     }
     
     $scope.seatClicked = function(seatNo){
@@ -47,9 +59,12 @@ angular.module('interviewTasks.controllers')
     }
     
     $scope.cnfrmClicked = function(){
-        for(var i=0; i<numberOfSeats; i++){
-            $scope.seatStatus[i].status=($scope.seatStatus[i].status == 2)?0:$scope.seatStatus[i].status;
-        }
+        if(seatForUser == 0)
+            for(var i=0; i<numberOfSeats; i++){
+                $scope.seatStatus[i].status=($scope.seatStatus[i].status == 2)?0:$scope.seatStatus[i].status;
+            }
+        else
+            alert("Please select all seats");
     }
 
     initCtrl();

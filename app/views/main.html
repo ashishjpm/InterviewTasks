@@ -18,6 +18,7 @@
 </div>
 
 <div class="seat-selection-wpr">
+    <div class="screen"> SCREEN </div>
     <div ng-class="['seat-checkbox', 'noselect', {'seat-checkbox-red':item.status==0}, {'seat-checkbox-green':item.status==2}]" ng-click="seatClicked($index)" ng-repeat="item in seatStatus track by $index">
         {{$index}}
     </div>

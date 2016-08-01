@@ -19,6 +19,14 @@
     font-size: 40px;
     margin: 20px;
 }
+.screen{
+    padding: 5px;
+    margin-bottom: 30px;
+    background: #0064ff;
+    color: #fff;
+    font-size: 20px;
+    text-align: center;
+}
 .seat-checkbox{
     margin: 10px;
     padding: 10px;
