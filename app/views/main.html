@@ -27,6 +27,21 @@
     </div>
 </div>
 
-<div>
-<!--    TODO: Display table in this area-->
+<div ng-if="bookingStats.length" class="stats-table">
+    <table class="table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>No. of seats</th>
+            <th>Seat numbers</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="item in bookingStats">
+            <td>{{item.name}}</td>
+            <td>{{item.noOfSeats}}</td>
+            <td>{{item.seats}}</td>
+          </tr>
+        </tbody>
+      </table>
 </div>

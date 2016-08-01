@@ -18,7 +18,7 @@ angular.module('interviewTasks.controllers')
         $scope.name='';
         $scope.numberOfSeats = 0;
         $scope.seatStatus = [];
-//        $scope.inSeatSelection = false;
+        $scope.bookingStats = [];
         
         //status => 0: unavailable, 1: available, 2: selected;
         for(var i=0; i<numberOfSeats; i++){
@@ -39,7 +39,6 @@ angular.module('interviewTasks.controllers')
             resetCurrent();
             userName = $scope.name;
             seatForUser = $scope.numberOfSeats;
-//            $scope.inSeatSelection = true;
         }
         else
             alert("Name should not be empty and number of seats should be greater than 0");
@@ -59,10 +58,21 @@ angular.module('interviewTasks.controllers')
     }
     
     $scope.cnfrmClicked = function(){
-        if(seatForUser == 0)
+        if(seatForUser == 0){
+            var currentSeats = [];
             for(var i=0; i<numberOfSeats; i++){
-                $scope.seatStatus[i].status=($scope.seatStatus[i].status == 2)?0:$scope.seatStatus[i].status;
+                if($scope.seatStatus[i].status == 2){
+                    currentSeats.push(i);
+                    $scope.seatStatus[i].status = 0;
+                }
             }
+            var statsObj = {
+                name: userName,
+                noOfSeats: $scope.numberOfSeats,
+                seats: angular.copy(currentSeats)
+            }
+            $scope.bookingStats.push(statsObj);
+        }
         else
             alert("Please select all seats");
     }
