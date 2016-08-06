@@ -1,1 +1,56 @@
-hello! this is abstract copy of project, pls checkout to specific branch.
+<div class="container">
+    <div class="container card-wpr">
+        <div class="card-title">
+            <span>Table Title</span>
+            <span class="card-search">
+            <span>Search: </span>
+            <input class="card-search-input" type="text" ng-model="searchTable">
+            </span>
+        </div>
+        <div class="table-wpr">
+            <table class="table fixed_headers">
+                <thead>
+                    <tr>
+                        <th ng-repeat="head in headers">
+                            <a href="#" ng-click="changeSort(head)">
+                                {{head}} 
+                                <span ng-show="sortType == head && !sortReverse" class="fa fa-caret-down"></span>
+                                <span ng-show="sortType == head && sortReverse" class="fa fa-caret-up"></span>
+                            </a>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="row in jsonData | orderBy:sortType:sortReverse | filter:searchTable">
+                        <td ng-repeat="(key,value) in row" ng-class="getFontColor(key,value)">{{value}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <div style="margin-top:5%">
+
+<!--        To Display Condtions applied-->
+        <div class="display-cond-wpr" ng-repeat="condition in condApplied">
+            <span class="display-cond-pill" ng-repeat="(key,value) in condition">
+                {{key}}: {{value}}
+            </span>
+        </div>
+
+<!--        To add new conditions-->
+        <div class="new-cond-wpr">
+            <span>
+                <span>If </span> 
+                <select ng-options="head for head in headers" ng-model="conditionColumn"></select>
+                <span> is &gt </span>
+                <input type="number" ng-model="conditionGT">
+                <span> and &lt </span>
+                <input type="number" ng-model="conditionLT">
+                <span> put color as </span>
+                <select ng-options="color.name for color in colors" ng-model="conditionColor"></select>
+            </span>
+            <span class="btn btn-primary apply-condition" ng-click="applyCondClicked()">Add Conditions</span>
+        </div>
+    </div>
+</div>
