@@ -65,7 +65,7 @@ angular.module('interviewTasks.controllers')
     
     $scope.getFontColor = function(column,value){
         var color = '';
-        for(var i=0;i<$scope.condApplied.length;i++)
+        for(var i=$scope.condApplied.length-1;i>=0;i--)
             if(
                 (column == $scope.condApplied[i].column)
                 &&(value > $scope.condApplied[i].gt)

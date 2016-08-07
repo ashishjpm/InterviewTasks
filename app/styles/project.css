@@ -63,6 +63,12 @@
     border-radius: 4px;
     margin: 0px 5px;
 }
+.info-text{
+    font-size: 15px;
+    font-family: Roboto;
+    font-weight: 300;
+    margin-bottom:15px
+}
 
 /*font class*/
 .Red{color:#f44336}
@@ -70,6 +76,7 @@
 .Blue{color:#3F51B5}
 .Yellow{color:#FFEB3B}
 
+/*Table Header Fix*/
 tbody {
 	width: 100%; float: left; display: block; overflow-y: scroll; max-height: 300px;
 }
