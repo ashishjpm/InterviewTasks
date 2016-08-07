@@ -40,10 +40,14 @@ angular.module('interviewTasks.controllers')
     
     function getTableHeader(){
         var headerArray = [];
+        $scope.numDimArray = [];
         for(var i=0;i<Settings.jsonData.length;i++){
-            for(var key in Settings.jsonData[i])
+            for(var key in Settings.jsonData[i]){
                 if(headerArray.indexOf(key)==-1)
                     headerArray.push(key);
+                if((typeof(Settings.jsonData[i][key])== "number") && ($scope.numDimArray.indexOf(key)==-1))
+                    $scope.numDimArray.push(key);
+            }
         }
         return headerArray;
     }

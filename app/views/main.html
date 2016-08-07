@@ -42,7 +42,7 @@
         <div class="new-cond-wpr">
             <span>
                 <span>If </span> 
-                <select ng-options="head for head in headers" ng-model="conditionColumn"></select>
+                <select ng-options="head for head in numDimArray" ng-model="conditionColumn"></select>
                 <span> is &gt </span>
                 <input type="number" ng-model="conditionGT">
                 <span> and &lt </span>
@@ -53,7 +53,7 @@
             <span class="btn btn-primary apply-condition" ng-click="applyCondClicked()">Add Conditions</span>
         </div>
         <div class="info-text">
-           <i>#NOTE: If element satisfies more than on e condition than most recently applied condition will be effective</i>
+           <i>#NOTE: If element satisfies more than one condition than most recently applied condition will be effective</i>
         </div>
     </div>
 </div>

@@ -64,13 +64,13 @@ angular.module('interviewTasks.services')
             'Age':65,
             'Income':34,
             'Profit':34
-        },,
+        },
         {
             'Name': 'Amit',
             'Age':52,
             'Income':12,
             'Profit':78
-        },,
+        },
         {
             'Name': 'Anuj',
             'Age':89,
