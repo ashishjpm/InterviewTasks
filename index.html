@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Via.com Task</title>
+	<link rel="icon" href="assets/images/favicon.ico">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"> 
+	<meta name="keywords" content="Via,BROWSE">
+  	<meta name="author" content="Ashish Mishra <ashishjpm@gmail.com>">
+  	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+	<link rel="stylesheet" href="assets/css/font-awesome.css">
+	<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body ng-app="viatask">
+	<ui-view ng-click="bodyClick()"></ui-view>
+
+<!-- Start Bower Components -->
+	<script src="bower_components/jquery/dist/jquery.js"></script>
+	<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+	<script src="bower_components/angular/angular.js"></script>
+	<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<!-- End Bower Compoenets -->
+
+	<script src="app/app.module.js"></script>
+	<script src="app/app.router.js"></script>
+
+	<script src="app/controllers/browse.controller.js"></script>
+
+	<script src="app/directives/listitem.directive.js"></script>
+
+	<script src="app/services/main.service.js"></script>
+	<script src="app/services/filter.service.js"></script>
+
+</body>
+</html>

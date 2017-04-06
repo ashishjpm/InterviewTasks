@@ -1,0 +1,22 @@
+{
+  "name": "viacom-task",
+  "private": true,
+  "version": "1.0.0-pre-alpha",
+  "description": "Interview task for via.com",
+  "main": "index.js",
+  "author": "Ashish Mishra <ashish.mishra@nanobi.in>",
+  "contributors": [],
+  "scripts": {
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/"
+  },
+  "dependencies": {
+    "express": "^4.14.0"
+  },
+  "devDependencies": {
+    "open": "0.0.5"
+  }
+}

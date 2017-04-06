@@ -1,0 +1,47 @@
+<div class="list-card-wpr">
+    <div class="list-item depTime">
+        <div class="time">{{diaplayValue.depDetail.time}}</div>
+        <div class="city">{{diaplayValue.depDetail.city}}</div>
+    </div>
+    <div class="list-item fltDur">
+        <div class="dur">
+            {{diaplayValue.duration.time}}
+            <span class="stops">
+      			<font size="1">{{diaplayValue.duration.stops}}</font>
+      		</span>
+        </div>
+        <div class="route">
+            <span ng-repeat="item in diaplayValue.duration.path track by $index">
+                {{item}} <i ng-show="$index != diaplayValue.duration.path.length-1" class="fa fa-arrow-right routeArrowIcon" aria-hidden="true"></i>
+            </span>
+            <!-- BLR <i class="fa fa-arrow-right" aria-hidden="true"></i> DEL -->
+        </div>
+    </div>
+    <div class="list-item arrTime">
+        <div class="time">{{diaplayValue.arrDetail.time}}</div>
+        <div class="city">{{diaplayValue.arrDetail.city}}</div>
+    </div>
+    <div class="list-item airline">
+        <div class="airLogo">
+            <img src="assets/images/{{diaplayValue.imagepath}}.gif" alt="9W">
+        </div>
+        <div class="airDet">
+            <div class="name js-toolTip" data-tip="<b>{{diaplayValue.carrierName}}</b><br>9W-7120<br>" data-hasqtip="5">
+                {{diaplayValue.carrierName}}
+            </div>
+            <div class="fltNum">{{diaplayValue.carrierCode}}-{{diaplayValue.flightNo}} </div>
+        </div>
+    </div>
+    <div class="list-item fdetail">
+    	<div>
+    		<i class="fa fa-list" aria-hidden="true"></i>
+    		Flight Details
+    	</div>
+    </div>
+    <div class="list-item price">
+    	<span class="price-value">&#8377 {{diaplayValue.price}}</span>
+    </div>
+    <div class="list-item book">
+    	<button class="book-btn">Book</button>
+    </div>
+</div>
