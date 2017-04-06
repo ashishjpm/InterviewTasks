@@ -1,0 +1,21 @@
+<header>
+	<span class="pull-right">
+		<button class="btn logout" ui-sref="login">Logout</button>
+	</span>
+</header>
+<section>
+	<aside>
+		<div class="video-list-title">Video List</div>
+		<ul class="style-none video-list">
+			<li class="cpointer" ng-click="changeVideo(key)" ng-repeat="(key, value) in currentVideoLib">
+				{{value.title}}
+			</li>
+		</ul>
+	</aside>
+	<main>
+		<div class="title text-center">{{title}}</div>
+		<video width="640" height="360" id="my-video">
+		    <source type="video/youtube"/>
+		</video>
+	</main>
+</section>

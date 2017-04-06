@@ -1,0 +1,29 @@
+{
+  "name": "videoken",
+  "private": true,
+  "version": "1.0.0-pre-alpha",
+  "description": "Interview Tasks done by Ashish Mishra - UI Developer",
+  "main": "app.js",
+  "author": "Ashish Mishra <ashishjpm@gmail.com>",
+  "contributors": [
+    {
+      "name": "Ashish Mishra",
+      "email": "ashishjpm@gmail.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ashishjpm/interviewTasks.git"
+  },
+  "scripts": {
+    "start": "node app.js"
+  },
+  "homepage": "https://github.com/ashishjpm/interviewTasks.git#readme",
+  "dependencies": {
+    "express": "^4.13.4"
+  },
+  "devDependencies": {
+    "open": "0.0.5",
+    "youtube-video-js": "^1.6.1"
+  }
+}

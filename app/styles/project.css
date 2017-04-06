@@ -1,0 +1,91 @@
+/*GLOBAL CSS*/
+body{
+	margin: 0px;
+	padding: 0px;
+}
+.style-none{
+	list-style: none;
+}
+.cpointer{
+	cursor: pointer;
+}
+
+/*Login Page CSS*/
+.login-wpr{
+	width: 40%;
+	margin: auto;
+	text-align: center;
+}
+.login-content{
+    height: 50%;
+    margin: 25% 0;
+    padding: 10px;
+}
+.login-content ul li{
+	margin-bottom: 10px
+}
+.login-txt{
+    font-size: 42px;
+}
+.login-form-elem{
+    padding: 3px 5px;
+	width: 60%
+}
+
+header{
+	height: 60px;
+	width: 100%;
+	position: fixed;
+	top: 0;
+	background: #59c2ff;
+}
+section{
+	margin-top: 60px;
+	height: calc(100vh - 60px);
+}
+aside{
+	width: 20%;
+	float: left;
+	background: #f3f3f3;
+	height: 100%;
+}
+main{
+	width: 80%;
+	float: left;
+	background: #fff;
+	height: 100%;
+}
+.title{
+    font-size: 22px;
+    line-height: 50px;
+    color: #ff7925;
+	height: 50px;
+	width: 100%;
+	border-bottom: 1px solid whitesmoke;
+}
+.video-wrapper{
+	margin: 20px;
+	text-align: center;
+}
+.logout{
+    height: 32px;
+    line-height: 25px;
+    margin: 12px;
+    padding: 0 20px;
+}
+.video-list-title{
+    text-align: center;
+    padding: 12px;
+    border-bottom: 1px solid grey;
+    font-size: 18px;
+    color: #0667bf;
+}
+.video-list{
+	margin: 0;
+    padding: 20px;
+}
+.video-list li{
+	padding: 5px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #b5b5b5;
+}
