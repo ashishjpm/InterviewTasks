@@ -1,7 +1,7 @@
 <header>
 	{{headerText}}
 </header>
-<section class="main-section">
+<section ng-class="['main-section', {'overflow-y-hide': showAdharPopup}]">
 	<div ng-show="showAdharPopup" class="register-aadhaar">
 		<div class="container-fluid">
 			<div class="row">
