@@ -16,6 +16,18 @@ body{
 .cpointer{
 	cursor: pointer;
 }
+.digio-input{
+    text-align: center;
+    padding: 10px 20px;
+    border: 2px solid #ccc;
+}
+.digio-btn{
+    border: none;
+    color: white;
+    margin: 10px;
+    font-size: 22px;
+    font-weight: 400;
+}
 
 /*Login Page CSS*/
 header{
@@ -52,18 +64,11 @@ header{
 .gmail-btn-container{
 	margin: 20px 0px;
 }
-.login-btn{
-    border: none;
-    color: white;
-    margin: 10px;
-    font-size: 22px;
-    font-weight: 400;
-}
-.login-btn.google{
+.digio-btn.google{
     background: rgb(227, 51, 40);
     padding: 5px 25px;
 }
-.login-btn.continue{
+.digio-btn.continue{
 	background: #000a82;
     padding: 12px 40px;
 }
@@ -77,9 +82,17 @@ header{
     margin: 0 5px 20px 5px;
 }
 /*main CSS*/
+.main-section{
+    position: relative;
+}
 .register-aadhaar{
     border-bottom: 2px solid #ccc;
     padding: 10px;
+    position: absolute;
+    top: 0;
+    background: white;
+    width: 100%;
+    z-index: 5;
 }
 .success-msg{
     background: #c8f1af;
@@ -106,5 +119,25 @@ header{
     height: 100%;
 }
 .main-container{
-    position: relative;;
+    position: relative;
+    height: calc(100vh - 60px);
+}
+.digio-btn.verify{
+    background: rgb(227, 51, 40);
+    padding: 8px 20px;
+    width: 100px;
+}
+.digio-btn.submit{
+    background: rgb(17, 0, 156);
+    padding: 8px 20px;
+    width: 100px;
+}
+.digio-input.verify{
+    width: 50%
+}
+.digio-input.submit{
+    width: 50%
+}
+.adhar-logo{
+    width: 100%;
 }
