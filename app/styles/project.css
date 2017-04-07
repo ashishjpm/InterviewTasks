@@ -76,3 +76,35 @@ header{
     padding: 10px;
     margin: 0 5px 20px 5px;
 }
+/*main CSS*/
+.register-aadhaar{
+    border-bottom: 2px solid #ccc;
+    padding: 10px;
+}
+.success-msg{
+    background: #c8f1af;
+    padding: 15px;
+    color: #2929a5;
+    border: 3px solid #60b360;
+}
+.tick-icon{
+    margin: 0 12px;
+    border: 2px solid;
+    border-radius: 50%;
+    padding: 3px;
+    top: 4px;
+    position: relative;
+    color: #60b360;
+    font-weight: 600;
+}
+.popup-mask{
+    position: absolute;
+    background: rgba(0,0,0,0.5);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.main-container{
+    position: relative;;
+}
