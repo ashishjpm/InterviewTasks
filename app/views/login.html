@@ -19,12 +19,19 @@
 			<div class="col-xs-offset-1 col-xs-10 col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4 column-wrp">
 				<div class="content-wrp text-center">
 					<div>
-						<input type="email" placeholder="sanket@digio.in" class="email-input">
+						<input type="text" ng-model="email" ng-change="verifyEmail(email)" placeholder="sanket@digio.in" class="email-input">
 					</div>
 					<div class="tnc-text">
 						By continuing, I confirm to the Terms of Service and Privacy Policy of digio.in
 					</div>
-					<div><button ui-sref="main" class="digio-btn continue">Continue</button></div>
+					<div>
+						<button 
+							ng-click="continueToMain()" 
+							ng-class="['digio-btn', 'continue', {'disabled': !validEmail}]"
+						>
+							Continue
+						</button>
+					</div>
 				</div>
 			</div>
 		</div>

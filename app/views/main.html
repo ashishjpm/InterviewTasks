@@ -1,5 +1,5 @@
 <header>
-	Register Aadhaar
+	{{headerText}}
 </header>
 <section class="main-section">
 	<div ng-show="showAdharPopup" class="register-aadhaar">
@@ -10,16 +10,24 @@
 				</div>
 				<div class="col-xs-8 col-sm-8 col-md-8">
 					<div class="row">
-						<input type="text" class="digio-input verify">
-						<button class="digio-btn verify">Verify</button>
+						<input 
+							type="text" 
+							ng-change="validatePhone(phoneNumber)" 
+							ng-model="phoneNumber" 
+							class="digio-input verify">
+						<button ng-class="['digio-btn', 'verify', {'disabled': !validPh}]">Verify</button>
 					</div>
 					<div class="row">
-						 <input type="checkbox">
+						 <input type="checkbox" ng-model="tncChecked">
 						 I agree to eSign this KYC document to get started
 					</div>
 					<div class="row">
-						<input type="number" class="digio-input submit">
-						<button class="digio-btn submit" ng-click="removeAdharPopup()">Submit</button>
+						<input 
+							type="text" 
+							ng-change="validateOtp(otp)" 
+							ng-model="otp" 
+							class="digio-input submit">
+						<button ng-class="['digio-btn', 'submit', {'disabled': (!validOtp || !validPh || !tncChecked)}]" ng-click="removeAdharPopup()">Submit</button>
 					</div>
 				</div>
 			</div>

@@ -28,7 +28,10 @@ body{
     font-size: 22px;
     font-weight: 400;
 }
-
+.disabled{
+    background: grey !important;
+    cursor: default;
+}
 /*Login Page CSS*/
 header{
 	background: #fff;
