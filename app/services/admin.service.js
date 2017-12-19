@@ -9,11 +9,11 @@
 ;
 (function() {
   falcon
-    .factory('AdminService', function($http) {
+    .factory('AdminService', function($http, AppConstant) {
 
     	function getContestList(id){
     		return $http({
-    			url: 'api/v1/contest/view-contest-list',
+    			url: AppConstant.base + AppConstant.getContestList,
     			method: 'GET',
     		})
     	}
