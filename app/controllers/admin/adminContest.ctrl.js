@@ -13,7 +13,7 @@
     $scope.adminContest = {};
 
     function init(){
-    	// $scope.root.admin.showAddContest = true;
+    	$scope.root.admin.showAddContest = true;
     	$scope.adminContest.type = ['All', 'Ongoing', 'Finished', 'Draft'];
     	$scope.adminContest.typeSelected = 'All';
         $scope.adminContest.list = [];
