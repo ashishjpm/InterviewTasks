@@ -1,0 +1,20 @@
+@import "base/_colors";
+@import "base/_reset";
+@import "base/_layout";
+@import "base/_typography";
+@import "base/_media";
+
+@import "components/_formElements";
+@import "components/_cards";
+
+@import "variables/_helper";
+
+@import "screens/_login";
+@import "screens/_adminContest";
+
+body{
+	padding: 0;
+	margin: 0;
+	background-color: $white;
+	@include font-light(0,100);
+}

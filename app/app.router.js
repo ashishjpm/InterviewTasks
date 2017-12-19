@@ -1,16 +1,52 @@
 /**
- * @name viatask
- * @description UI Router
- * Main router of the application.
+ * Main router for the applications
+ * @namespace falcon
+ * @author Ashish Mishra <ashishjpm@gmail.com>
  */
+falcon
+.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
 
-viatask
-.config(function($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise('/list');
+    //$urlRouterProvider.otherwise('/login');
     $stateProvider
-    	.state('list', {
-    		url: '/list',
-    		templateUrl: 'app/partials/flight-list.html',
-    		controller: 'ListCtrl'
-    	})
+        .state('login', {
+            url: '/login',
+            templateUrl: 'app/partials/login/login.html',
+            controller: 'LoginCtrl'
+        })
+    $stateProvider
+        .state('home', {
+            url: '/home',
+            templateUrl: 'app/partials/home/home.html',
+            controller: 'HomeCtrl'
+        })
+    $stateProvider
+        .state('home.contestList', {
+            url: '/contestList',
+            templateUrl: 'app/partials/home/contestList/contestList.html',
+            controller: 'ContestListCtrl'
+        })
+    $stateProvider
+        .state('admin', {
+            url: '/admin',
+            templateUrl: 'app/partials/admin/admin.html',
+            abstract: true
+        })
+    $stateProvider
+        .state('admin.contest', {
+            url: '/contest',
+            templateUrl: 'app/partials/admin/contest/contest.html',
+            controller: 'AdminContestCtrl'
+        })
+    $stateProvider
+        .state('admin.contestCreate', {
+            url: '/contestCreate',
+            templateUrl: 'app/partials/admin/contestCreate/contestCreate.html',
+            controller: 'AdminContestCreateCtrl'
+        })
+    $stateProvider
+        .state('admin.question', {
+            url: '/question',
+            templateUrl: 'app/partials/admin/question/question.html',
+            controller: 'QuestionCtrl'
+        })
 });

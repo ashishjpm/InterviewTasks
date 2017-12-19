@@ -1,8 +1,17 @@
 /**
  * Main module for the applications
- * @namespace viatask
+ * @namespace falcon
  * @author Ashish Mishra <ashishjpm@gmail.com>
  */
 'use strict';
 
-var viatask = angular.module('viatask', ['ui.router']);
+var falcon = angular.module('falcon', ['ui.router']);
+
+falcon.run(function($state, $rootScope){
+    $rootScope.$on('$stateChangeSuccess', function(){
+        $(document).ready(function(){
+        	$.material.init();
+        });
+    });
+    $rootScope.$state = $state;
+})

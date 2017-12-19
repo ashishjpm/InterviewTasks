@@ -2,34 +2,52 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Via.com Task</title>
+	<title>Falcon</title>
+	<base href="/">
+
 	<link rel="icon" href="assets/images/favicon.ico">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"> 
 	<meta name="keywords" content="Via,BROWSE">
-  	<meta name="author" content="Ashish Mishra <ashishjpm@gmail.com>">
-  	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
-	<link rel="stylesheet" href="assets/css/font-awesome.css">
-	<link rel="stylesheet" href="assets/css/main.css">
+	<meta name="author" content="Ashish Mishra <ashishjpm@gmail.com>">
+
+  <!--     Fonts and icons     -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" />
+
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+	<link rel="stylesheet" href="static/libs/material-kit/material-kit.css">
+	<link rel="stylesheet" href="assets/css/main.min.css">
 </head>
-<body ng-app="viatask">
-	<ui-view ng-click="bodyClick()"></ui-view>
+
+<body ng-app="falcon">
+	<ui-view></ui-view>
 
 <!-- Start Bower Components -->
 	<script src="bower_components/jquery/dist/jquery.js"></script>
 	<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
 	<script src="bower_components/angular/angular.js"></script>
-	<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-<!-- End Bower Compoenets -->
+	<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>\\
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
+  <script src="app/libs/material-kit/material.min.js"></script>
+  <script src="app/libs/material-kit/material-kit.js"></script> 
+<!-- End Bower Components -->
 
 	<script src="app/app.module.js"></script>
 	<script src="app/app.router.js"></script>
 
-	<script src="app/controllers/browse.controller.js"></script>
+  <script src="app/services/common.service.js"></script>
+  <script src="app/services/admin.service.js"></script>
+  <script src="app/services/login.service.js"></script>
 
-	<script src="app/directives/listitem.directive.js"></script>
+  <script src="app/controllers/root.ctrl.js"></script>
+  <script src="app/controllers/login/login.ctrl.js"></script>
+  <script src="app/controllers/home/home.ctrl.js"></script>
+  <script src="app/controllers/home/contestList/contestList.ctrl.js"></script>
 
-	<script src="app/services/main.service.js"></script>
-	<script src="app/services/filter.service.js"></script>
+  <script src="app/controllers/admin/adminQuestion.ctrl.js"></script>
+  <script src="app/controllers/admin/adminContest.ctrl.js"></script>
+  <script src="app/controllers/admin/adminContestCreate.ctrl.js"></script>
 
 </body>
 </html>
