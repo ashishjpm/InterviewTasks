@@ -10,13 +10,14 @@
  falcon
   .controller('AdminContestCreateCtrl', ['$scope', '$state', 'CommonService', 'AdminService',
     function($scope, $state, CommonService, AdminService) {
-    $scope.adminContestCreateCtrl = {};
+    $scope.contestCreate = {};
 
     function init(){
-    	$scope.adminContestCreateCtrl.asd = "asdasd";
+        $scope.root.admin.showAddBtn = false;
+    	$scope.contestCreate.currentState = 1;
     }
 
-    $scope.adminContestCreateCtrl.backToList = function(){
+    $scope.contestCreate.backToList = function(){
     	$state.go('admin.contest');
     }
 

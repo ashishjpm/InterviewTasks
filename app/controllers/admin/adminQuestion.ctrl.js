@@ -13,6 +13,8 @@
         $scope.adminContest = {};
 
         function init(){
+        	$scope.root.admin.showAddBtn = true;
+        	$scope.root.adminSelected = "My Questions";
         }
 
         init();

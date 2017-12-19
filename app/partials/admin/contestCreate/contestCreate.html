@@ -1,3 +1,66 @@
 <div class="admin-contest-create">
-	<span ng-click="adminContestCreateCtrl.backToList()">back hi {{adminContestCreateCtrl.asd}}</span>
+	<div class="page-head">
+		<i ng-click="contestCreate.backToList()" class="material-icons">arrow_back</i>
+		<span class="page-title">Create Contest</span>
+	</div>
+	<div class="steps-nav text-center row">
+		<div class="col-md-4">
+			<span ng-class="[{'done': (contestCreate.currentState > 1)}, {'active': (contestCreate.currentState == 1)}]">1</span>
+		</div>
+		<div class="col-md-4">
+			<span ng-class="[{'done': (contestCreate.currentState > 2)}, {'active': (contestCreate.currentState == 2)}, {'pending': (contestCreate.currentState < 2)}]">2</span>
+		</div>
+		<div class="col-md-4">
+			<span ng-class="[{'done': (contestCreate.currentState > 3)}, {'active': (contestCreate.currentState == 3)}, {'pending': (contestCreate.currentState < 3)}]">3</span>
+		</div>
+	</div>
+	<form action="" class="margin-top-20 step-one-form" ng-if="contestCreate.currentState == 1">
+		<div class="row">
+			<div class="col-md-2"><label for="">Name</label></div>
+			<div class="col-md-4"><input type="text"></div>
+		</div>
+		<div class="row">
+			<div class="col-md-2"><label for="">Description</label></div>
+			<div class="col-md-4"><textarea name="" cols="30" rows="10"></textarea></div>
+		</div>
+		<div class="row">
+			<div class="col-md-2"><label for="">Start Date</label></div>
+			<div class="col-md-4"><input type="text"></div>
+		</div>
+		<div class="row">
+			<div class="col-md-2"><label for="">End Date</label></div>
+			<div class="col-md-4"><input type="text"></div>
+		</div>
+		<div class="row">
+			<div class="col-md-2"><label for="">Open Contest</label></div>
+			<div class="col-md-4">
+				<div class="togglebutton success">
+					<label>
+				    <input type="checkbox" ng-model="openContest">
+				    {{openContest}}
+					</label>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-2"><label for="">Is Team Contest</label></div>
+			<div class="col-md-4">
+				<div class="togglebutton success">
+					<label>
+				    <input type="checkbox" ng-model="teamContest">
+				    {{teamContest}}
+					</label>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-2"><label for="">Max Team Size</label></div>
+			<div class="col-md-4"><input type="number"></div>
+		</div>
+	</form>
+
+	<div class="pull-right">
+		<button class="btn" ng-click="contestCreate.currentState = contestCreate.currentState + 1">Next</button>
+	</div>
+
 </div>

@@ -13,13 +13,13 @@
   	$scope.root.admin = {};
 
   	function init(){
-      $scope.root.adminSelected = "contest";
-      $scope.root.admin.showAddContest = true;
+      $scope.root.adminSelected = "My Contests";
+      $scope.root.admin.showAddBtn = true;
   	}
 
   	$scope.root.admin.gotoState = function(stateName){
   		$state.go(stateName);
-  		$scope.root.admin.showAddContest = false;
+  		$scope.root.admin.showAddBtn = false;
   	}
 
     init();
