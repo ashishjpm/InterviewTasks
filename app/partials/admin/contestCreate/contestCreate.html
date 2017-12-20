@@ -14,6 +14,7 @@
 			<span ng-class="[{'done': (contestCreate.currentState > 3)}, {'active': (contestCreate.currentState == 3)}, {'pending': (contestCreate.currentState < 3)}]">3</span>
 		</div>
 	</div>
+
 	<form action="" class="margin-top-20 step-one-form" ng-if="contestCreate.currentState == 1">
 		<div class="row">
 			<div class="col-md-2"><label for="">Name</label></div>
@@ -86,6 +87,24 @@
 					<option value="RANDOM">Random</option>
 				</select>
 			</div>
+		</div>
+	</form>
+	<form action="" ng-if="contestCreate.currentState == 2">
+		<div class="row" ng-repeat="item in contestCreate.fixedQueMeta">
+			<div class="col-md-3">
+				<select name="" id="" ng-model="item.category">
+					<option value="">java</option>
+					<option value="">dsa</option>
+				</select>
+			</div>
+			<div class="col-md-3">
+				<select name="" id="" ng-model="item.level">
+					<option value="">easy</option>
+					<option value="">medium</option>
+				</select>
+			</div>
+			<div class="col-md-3"><input ng-model="item.number" type="text"></div>
+			<div class="col-md-3"><i class="material-icons">add_circle</i></div>
 		</div>
 	</form>
 

@@ -9,15 +9,18 @@
 	</div>
 	<div class="f-card-holder">
 		<div class="row">
-			<div class="col-md-4" ng-repeat="item in adminContest.list" ng-if="adminContest.typeSelected == 'All' || adminContest.typeSelected == item.status">
-				<div class="f-card">
-					<p>{{item.name}}</p>
-					<span>{{item.participants}}</span>
-					<span>{{item.isActive}}</span>
-					<span>{{item.endsIn}}</span>
-					<span>{{item.startIn}}</span>
-					<span class="info-pill">{{item.status}}</span>
-				</div>
+			<div 
+				class="col-md-4" 
+				ng-repeat="item in adminContest.list" 
+				ng-if="adminContest.typeSelected == 'All' || adminContest.typeSelected == item.status">
+					<div class="f-card">
+						<div class="cart-title">{{item.name}}</div>
+						<span>{{item.participants}}</span>
+						<span>{{item.isActive}}</span>
+						<span>{{item.endsIn}}</span>
+						<span>{{item.startIn}}</span>
+						<span class="info-pill">{{item.status}}</span>
+					</div>
 			</div>
 		</div>
 	</div>

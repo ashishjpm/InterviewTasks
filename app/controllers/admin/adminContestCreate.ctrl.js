@@ -14,7 +14,7 @@
 
     function init(){
         $scope.root.admin.showAddBtn = false;
-        $scope.contestCreate.currentState = 1;
+        $scope.contestCreate.currentState = 2;
         $scope.contestCreate.stepOne = {
             name: "",
             description: "",
@@ -26,6 +26,14 @@
             type: "FIXED",
             maxTeamSize: 1
         };
+
+        $scope.contestCreate.fixedQueMeta = [
+            {
+                category: "",
+                level: "",
+                number: "",
+            }
+        ];
     }
 
     $scope.create = function(){
