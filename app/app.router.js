@@ -65,4 +65,10 @@ falcon
             templateUrl: 'app/partials/admin/question/question.html',
             controller: 'QuestionCtrl'
         })
+    $stateProvider
+        .state('admin.questionDetail', {
+            url: '/questionDetail',
+            templateUrl: 'app/partials/admin/questionDetail/questionDetail.html',
+            controller: 'QuestionDetailCtrl'
+        })
 });
