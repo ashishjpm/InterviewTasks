@@ -9,7 +9,7 @@
 ;
 (function() {
     falcon
-        .factory('LoginService', function($http) {
+        .factory('LoginService', function($http, AppConstant) {
 
         	function postLogin(username, password){
         		var form = new FormData();
@@ -18,7 +18,7 @@
 
                 $.ajax({
                    type: 'POST',
-                   url: '/login',
+                   url: AppConstant.base + 'login',
                    data: {
                         username: username,
                         password: password
@@ -28,13 +28,7 @@
                     console.log('hello');
                    }
                 });
-//        		return $http({
-//        			url: '/login?username'+username+'&',
-//        			form,
-//        			method: 'POST',
-//        			transformRequest: angular.identity,
-//                    headers: {'Content-Type': undefined}
-//        		})
+
         	}
 
             return {

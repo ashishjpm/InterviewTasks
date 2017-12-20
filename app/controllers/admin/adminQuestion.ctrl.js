@@ -13,8 +13,8 @@
         $scope.adminContest = {};
 
         function init(){
+            
         }
-
         init();
     }]);
 }());
