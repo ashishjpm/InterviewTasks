@@ -10,3 +10,11 @@
 	margin: 0px auto;
   padding: 30px 0;
 }
+.f-card-list{
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  background: $white;
+  height: 50px;
+  width: 100%;
+  margin: 15px 0;
+  cursor: pointer;
+}
