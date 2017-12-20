@@ -16,8 +16,18 @@
                 method: 'GET',
             })
         }
+
+        function createContest(contest){
+            return $http({
+                url: AppConstant.api + 'contest/create',
+                method : 'POST',
+                data : contest
+            })
+        }
+
         return {
-            getContestList: getContestList
+            getContestList: getContestList,
+            completeFirstStep: createContest
         };
     });
 }());

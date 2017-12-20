@@ -24,12 +24,12 @@
 		<div class="row">
 			<div class="col-md-2"><label for="">Description</label></div>
 			<div class="col-md-4">
-				<textarea 
-					name="description" 
-					cols="30" 
-					rows="5" 
+				<textarea
+					name="description"
+					cols="30"
+					rows="5"
 					ng-model="contestCreate.stepOne.description"
-					class="f-text-area full">		
+					class="f-text-area full">
 				</textarea>
 			</div>
 		</div>
@@ -55,18 +55,18 @@
 		<div class="row">
 			<div class="col-md-2"><label for="">Max Team Size</label></div>
 			<div class="col-md-4">
-				<input 
-					ng-model="contestCreate.stepOne.maxTeamSize" 
-					class="f-input md full" 
+				<input
+					ng-model="contestCreate.stepOne.maxTeamSize"
+					class="f-input md full"
 					type="number">
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-md-2"><label for="">Duration (in secs)</label></div>
 			<div class="col-md-4">
-				<input 
-					ng-model="contestCreate.stepOne.duration" 
-					class="f-input md full" 
+				<input
+					ng-model="contestCreate.stepOne.duration"
+					class="f-input md full"
 					type="number">
 			</div>
 		</div>
@@ -82,7 +82,7 @@
 	</form>
 
 	<div class="pull-right">
-		<button class="btn" ng-click="contestCreate.currentState = contestCreate.currentState + 1">
+		<button class="btn" ng-click="create()">
 			Add Questions
 		</button>
 	</div>
