@@ -8,16 +8,21 @@
 ;
 (function() {
  falcon
-    .controller('QuestionDetailCtrl', ['$scope', 'CommonService',
-        function($scope, CommonService) {
-        $scope.adminQuestion = {};
+    .controller('QuestionDetailCtrl', ['$scope', '$state' ,'CommonService',
+        function($scope, $state ,CommonService) {
+        $scope.adminQuestionDetails = {};
 
         function init(){
         	$scope.root.admin.showAddBtn = true;
-        	$scope.root.adminSelected = "My Questions";
-        	$scope.adminQuestion.type = ['All', 'MCQ', 'SCQ', 'Coding'];
-        	$scope.adminQuestion.typeSelected = 'All';
+        	$scope.root.adminSelected = "Question Details";
+            $scope.adminQuestionDetails.typeList = ['SCQ','MCQ','Coding'];
+            $scope.adminQuestionDetails.type = 'Coding';        	
         }
+
+        $scope.adminQuestionDetails.backToList = function(){
+            $state.go('admin.question');
+        }
+
         init();
     }]);
 }());

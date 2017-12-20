@@ -1,0 +1,38 @@
+<div class="admin-contest-attempt">
+	<div class="sidebar">
+		<div ng-class="['question-list']" ng-repeat="item in [1,2,3,4]">
+			<span 
+				ng-class="['mark',
+					{'correct': contestAttempt.activeQuestion.completed},
+					{'attempted':contestAttempt.activeQuestion.inProgress},
+					{'unAttempted':contestAttempt.activeQuestion.unAttempted}]">
+				<i class="material-icons">done</i>
+			</span>
+			<span class="question">{{item}}</span>
+		</div>
+	</div>
+	<div class="content">
+		<span class="timer">
+			some time
+		</span>
+
+		<div class="que-title">
+			5 horce problam
+		</div>
+
+		<div class="que-statment">
+			There are 25 horses. What is the minimum number of races needed so you can identify the fastest 3 horses? You can race up to 5 horses at a time, but you do not have a watch.
+		</div>
+
+		<div class="code-editor">
+			<div id="code"></div>
+			
+		</div>
+		<script>
+			var myCodeMirror = CodeMirror(document.getElementById("code"), {
+		    lineNumbers: true,
+		    mode: "htmlmixed"
+		  });
+		</script>
+	</div>
+</div>

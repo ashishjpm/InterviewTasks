@@ -1,0 +1,39 @@
+.admin-contest-attempt{
+	margin: -50px 0;
+	height: calc(100vh - 150px);
+	.sidebar{
+		width: 25%;
+		display: inline-block;
+		border-right: 1px solid;
+		height: calc(100vh - 150px);
+		overflow-y: auto;
+		float: left;
+		.question-list{
+			padding: 20px 15px 15px 30px;
+			cursor: pointer;
+			.question{
+				padding-left: 15px;
+			}
+		}
+	}
+	.content{
+		position: relative;
+		width: 75%;
+		height: calc(100vh - 150px);
+		overflow-y: auto;
+		display: inline-block;
+		.timer{
+			position: absolute;
+			right: 50px;
+			top: 0;
+			font-size: 20px;
+		}
+		.que-title{
+			
+		}
+		.code-editor{
+			margin: 30px;
+			border: 1px solid grey;
+		}
+	}
+}

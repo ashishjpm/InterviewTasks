@@ -14,8 +14,9 @@
 
     function init(){
         $scope.root.admin.showAddBtn = false;
-        $scope.contestCreate.currentState = 3;
+        $scope.contestCreate.currentState = 1;
         $scope.contestCreate.contestId = $scope.contestCreate.contestId || 1;
+
         $scope.contestCreate.stepOne = {
             name: "",
             description: "",
