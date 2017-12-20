@@ -92,18 +92,20 @@
 	<form action="" ng-if="contestCreate.currentState == 2">
 		<div class="row" ng-repeat="item in contestCreate.fixedQueMeta">
 			<div class="col-md-3">
-				<select name="" id="" ng-model="item.category">
+				<select class="f-select lg full" ng-model="item.category">
 					<option value="">java</option>
 					<option value="">dsa</option>
 				</select>
 			</div>
 			<div class="col-md-3">
-				<select name="" id="" ng-model="item.level">
+				<select class="f-select lg full" ng-model="item.level">
 					<option value="">easy</option>
 					<option value="">medium</option>
 				</select>
 			</div>
-			<div class="col-md-3"><input ng-model="item.number" type="text"></div>
+			<div class="col-md-3">
+				<input class="f-input full md" ng-model="item.number" type="text">
+			</div>
 			<div class="col-md-3"><i class="material-icons">add_circle</i></div>
 		</div>
 	</form>
