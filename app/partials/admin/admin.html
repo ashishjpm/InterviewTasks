@@ -3,13 +3,13 @@
 		<img src="/assets/images/f_logo.jpeg" alt="">
 	</span>
 	<span class="task-select">
-		<span class="task-title">My Contests</span>
+		<span class="task-title">{{root.adminSelected}}</span>
 		<i class="material-icons">keyboard_arrow_down</i>
 	</span>
 	<span 
 		class="add-new" 
 		ng-click="root.admin.gotoState('admin.contestCreate')" 
-		ng-if="root.admin.showAddContest">
+		ng-if="root.admin.showAddBtn">
 			<i class="material-icons">add</i>
 	</span>
 </header>

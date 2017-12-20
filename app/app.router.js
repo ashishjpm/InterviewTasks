@@ -13,6 +13,8 @@ falcon
             templateUrl: 'app/partials/login/login.html',
             controller: 'LoginCtrl'
         })
+
+    //=========  Home routes  =========    
     $stateProvider
         .state('home', {
             url: '/home',
@@ -25,6 +27,8 @@ falcon
             templateUrl: 'app/partials/home/contestList/contestList.html',
             controller: 'ContestListCtrl'
         })
+
+    //=========  Admin routes  =========
     $stateProvider
         .state('admin', {
             url: '/admin',
