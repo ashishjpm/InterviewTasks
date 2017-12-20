@@ -1,0 +1,25 @@
+.admin-contest-attempt{
+	margin: -50px 0;
+	height: calc(100vh - 150px);
+	.sidebar{
+		width: 25%;
+		display: inline-block;
+		border-right: 1px solid;
+		height: 100%;
+		float: left;
+	}
+	.content{
+		position: relative;
+		width: 75%;
+		display: inline-block;
+		.timer{
+			position: absolute;
+			right: 50px;
+			top: 0;
+			font-size: 20px;
+		}
+		.que-title{
+			
+		}
+	}
+}
