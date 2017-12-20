@@ -10,11 +10,13 @@
  falcon
     .controller('QuestionCtrl', ['$scope', 'CommonService',
         function($scope, CommonService) {
-        $scope.adminContest = {};
+        $scope.adminQuestion = {};
 
         function init(){
         	$scope.root.admin.showAddBtn = true;
         	$scope.root.adminSelected = "My Questions";
+        	$scope.adminQuestion.type = ['All', 'MCQ', 'SCQ', 'Coding'];
+        	$scope.adminQuestion.typeSelected = 'All';
         }
         init();
     }]);
