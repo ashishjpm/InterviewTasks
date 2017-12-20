@@ -7,6 +7,13 @@
 		border-right: 1px solid;
 		height: 100%;
 		float: left;
+		.question-list{
+			padding: 20px 15px 15px 30px;
+			cursor: pointer;
+			.question{
+				padding-left: 15px;
+			}
+		}
 	}
 	.content{
 		position: relative;

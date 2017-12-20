@@ -14,6 +14,11 @@
 
     	function init(){
             $scope.root.userSelected = "Ongoing Contest";
+            $scope.contestAttempt.activeQuestion = {
+            	'inProgress' : true,
+            	'completed' : false,
+            	'unAttempted' : false
+            }
     	}
 
         init();

@@ -36,7 +36,14 @@ body{
 		}
 	}
 	&.attempted{
-		background: yellow;
+		padding : 1px 10px;
+		background: #da8e62;
+		i{
+			display: none;
+		}
+	}
+	&.unAttempted{
+		background:white;
 		i{
 			display: none;
 		}
