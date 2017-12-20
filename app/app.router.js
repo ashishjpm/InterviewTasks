@@ -19,13 +19,25 @@ falcon
         .state('home', {
             url: '/home',
             templateUrl: 'app/partials/home/home.html',
-            controller: 'HomeCtrl'
+            abstract: true
         })
     $stateProvider
         .state('home.contestList', {
             url: '/contestList',
             templateUrl: 'app/partials/home/contestList/contestList.html',
             controller: 'ContestListCtrl'
+        })
+    $stateProvider
+        .state('home.contestDetail', {
+            url: '/contestDetail',
+            templateUrl: 'app/partials/home/contestDetail/contestDetail.html',
+            controller: 'ContestDetailCtrl'
+        })
+    $stateProvider
+        .state('home.contestResult', {
+            url: '/contestResult',
+            templateUrl: 'app/partials/home/contestResult/contestResult.html',
+            controller: 'ContestResultCtrl'
         })
 
     //=========  Admin routes  =========
