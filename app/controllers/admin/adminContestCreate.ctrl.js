@@ -14,17 +14,28 @@
 
     function init(){
         $scope.root.admin.showAddBtn = false;
-        $scope.contestCreate.currentState = 2;
+        $scope.contestCreate.currentState = 3;
+        $scope.contestCreate.contestId = $scope.contestCreate.contestId || 1;
         $scope.contestCreate.stepOne = {
             name: "",
             description: "",
             startDate: "",
             endDate: "",
             openContest: true,
+            isTeamContest: false,
             status: "DRAFT",
             duration: 3600,
             type: "FIXED",
             maxTeamSize: 1
+        };
+
+        $scope.contestCreate.stepThree = {
+            contestId : '',
+            isRandomOrder: false,
+            activateContest: false,
+            invites : [{
+                email : ''
+            }]
         };
 
         $scope.contestCreate.fixedQueMeta = [
@@ -34,16 +45,94 @@
                 number: "",
             }
         ];
+
+        $scope.contestCreate.selectedQuestions=[];
     }
 
-    $scope.create = function(){
+    $scope.createContest = function(){
         $scope.contestCreate.stepOne.startDate = new Date($scope.contestCreate.stepOne.startDate).toISOString();
         $scope.contestCreate.stepOne.endDate = new Date($scope.contestCreate.stepOne.endDate).toISOString();
         AdminService.completeFirstStep($scope.contestCreate.stepOne).then(
         function(response){
             $scope.contestCreate.currentState += 1;
+            $scope.contestCreate.contestId = response.data.responseObject.id;
         });
     }
+
+    $scope.fetchQuestions = function(){
+        AdminService.fetchContestQuestions().then(
+            function(response){
+                $scope.contestCreate.selectedQuestions = response.data.responseObject;
+                if($scope.contestCreate.selectedQuestions.length > 0){
+                    var questions = [];
+                    $scope.contestCreate.selectedQuestions.forEach(function(question){
+                        question.contestId = $scope.contestCreate.contestId;
+                        questions.push({
+                            "contestId": $scope.contestCreate.contestId,
+                            "negativePoints": question.negativePoints || 0,
+                            "points": question.marks || 1,
+                            "questionId": question.questionId || 1,
+                            "questionTitle": question.title
+                        });
+                    });
+                    AdminService.completeSecondStep($scope.contestCreate.contestId, questions).then(function(response){
+                        console.log(response);
+                        $scope.contestCreate.currentState += 1;
+                    });
+                }
+            },
+            function(err){
+
+            }
+        );
+    }
+
+    $scope.finalizeConfigurations = function(){
+        AdminService.saveContestConfigration($scope.contestCreate.contestId, $scope.contestCreate.stepThree.invites).then(
+            function(response){
+                console.log(response);
+            },
+            function(err){
+
+            }
+        );
+    }
+
+    $scope.submit = function(){
+        console.log($scope.contestCreate.currentState);
+        if($scope.contestCreate.currentState == 1){
+            $scope.createContest();
+        } else if($scope.contestCreate.currentState == 2){
+            $scope.fetchQuestions();
+        } else if($scope.contestCreate.currentState == 3){
+            $scope.finalizeConfigurations();
+        }
+    }
+
+    $scope.addCategory = function(){
+        $scope.contestCreate.fixedQueMeta.push({
+            category: "",
+            level: "",
+            number: "",
+        });
+    }
+
+    $scope.removeCategory = function(index){
+        $scope.contestCreate.fixedQueMeta.splice(index, 1);
+    }
+
+    $scope.addInvitee = function(){
+        $scope.contestCreate.stepThree.invites.push({
+            category: "",
+            level: "",
+            number: "",
+        });
+    }
+
+    $scope.removeInvitee = function(index){
+        $scope.contestCreate.stepThree.invites.splice(index, 1);
+    }
+
 
     $scope.contestCreate.backToList = function(){
     	$state.go('admin.contest');
