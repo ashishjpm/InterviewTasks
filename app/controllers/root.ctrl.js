@@ -18,7 +18,7 @@
       $scope.root.userSelected = "My Contests";
       $scope.root.admin.showAddBtn = true;
       $scope.root.user.showAddBtn = false;
-      $scope.root.user.ongoingContestId = 1;
+      $scope.root.user.activeContestId = 1;
   	}
 
   	$scope.root.admin.gotoState = function(stateName){

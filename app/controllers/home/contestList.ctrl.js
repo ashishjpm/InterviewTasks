@@ -8,8 +8,8 @@
 ;
 (function() {
  falcon
-    .controller('ContestListCtrl', ['$scope', '$state', 'CommonService',
-    	function($scope, $state, CommonService) {
+    .controller('ContestListCtrl', ['$scope', '$state', 'CommonService', 'UserService',
+    	function($scope, $state, CommonService, UserService) {
     	$scope.contestList = {};
 
     	function init(){
