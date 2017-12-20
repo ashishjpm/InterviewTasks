@@ -10,7 +10,7 @@
 (function() {
     falcon
     .factory('AdminService', function($http, AppConstant) {
-        function getContestList(id){
+        function getContestList(){
             return $http({
                 url: AppConstant.api + 'contest/view-contest-list',
                 method: 'GET',

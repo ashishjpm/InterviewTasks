@@ -15,12 +15,14 @@
 				ng-click="contestList.getDetails(item)"
 				ng-if="contestList.typeSelected == 'All' || contestList.typeSelected == item.status">
 					<div class="f-card">
-						<p>{{item}}</p>
-						<span>{{item.participants}}</span>
-						<span>{{item.isActive}}</span>
-						<span>{{item.endsIn}}</span>
-						<span>{{item.startIn}}</span>
-						<p>{{item.status}}</p>
+						<div class="cart-title">{{item.name}}</div>
+						<div class="padding-left-20">
+							<div>Participants: {{item.participants}}</div>
+							<div>Is Active: {{item.isActive}}</div>
+							<div ng-if="item.isActive">Ends In: {{item.endsIn}}</div>
+							<div ng-if="!item.isActive">Starts In: {{item.startIn}}</div>
+						</div>
+						<span class="info-pill">{{item.status}}</span>
 					</div>
 			</div>
 		</div>
