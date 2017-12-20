@@ -8,8 +8,8 @@
 ;
 (function() {
  falcon
-  .controller('AdminContestCreateCtrl', ['$scope', '$state', 'CommonService', 'AdminService',
-    function($scope, $state, CommonService, AdminService) {
+  .controller('AdminContestCreateCtrl', ['$scope', '$state', '$timeout' ,'CommonService', 'AdminService',
+    function($scope, $state,$timeout ,CommonService, AdminService) {
     $scope.contestCreate = {};
 
     function init(){
@@ -27,6 +27,8 @@
             maxTeamSize: 0
         };
     }
+
+      
 
     $scope.contestCreate.backToList = function(){
     	$state.go('admin.contest');
