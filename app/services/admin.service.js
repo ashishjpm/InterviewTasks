@@ -10,7 +10,7 @@
 (function() {
     falcon
     .factory('AdminService', function($http, AppConstant) {
-        function getContestList(id){
+        function getContestList(){
             return $http({
                 url: AppConstant.api + 'contest/view-contest-list',
                 method: 'GET',
@@ -25,9 +25,37 @@
             })
         }
 
+        function addQuestionToContestTemplate(contest, questions){
+            return $http({
+                url: AppConstant.api + 'contest/'+contest+'/add-questions',
+                method : 'POST',
+                data : questions
+            })
+        }
+
+        function fetchContestQuestions(contest){
+            return $http({
+                url: AppConstant.api + 'question/getQuestions',
+                method : 'GET'
+            })
+        }
+
+        function saveConfiguration(contest, configs){
+            return $http({
+                url: AppConstant.api + 'contest/'+contest+'/add-contestant',
+                method : 'POST',
+                data : configs
+            })
+        }
+
+
         return {
             getContestList: getContestList,
-            completeFirstStep: createContest
+            completeFirstStep: createContest,
+            completeSecondStep:addQuestionToContestTemplate,
+            fetchContestQuestions : fetchContestQuestions,
+            saveContestConfigration:saveConfiguration,
+
         };
     });
 }());
