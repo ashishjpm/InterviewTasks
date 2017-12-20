@@ -8,31 +8,31 @@
 ;
 (function() {
  falcon
-  .controller('AdminContestCreateCtrl', ['$scope', '$state', 'CommonService', 'AdminService',
-    function($scope, $state, CommonService, AdminService) {
+  .controller('AdminContestCreateCtrl', ['$scope', '$state', '$timeout' ,'CommonService', 'AdminService',
+    function($scope, $state,$timeout ,CommonService, AdminService) {
     $scope.contestCreate = {};
 
     function init(){
         $scope.root.admin.showAddBtn = false;
         $scope.contestCreate.currentState = 1;
         $scope.contestCreate.stepOne = {
-            name: "QUESTION",
-            description: "QUESTION",
-            startDate: "2017-12-20T09:40:36.216Z",
-            endDate: "2017-12-20T09:40:36.216Z",
+            name: "",
+            description: "",
+            startDate: "",
+            endDate: "",
             openContest: true,
             status: "DRAFT",
-            duration: 30,
+            duration: 3600,
             type: "FIXED",
             maxTeamSize: 1
         };
     }
 
     $scope.create = function(){
-        console.log('calling api', $scope.contestCreate.stepOne);
+        $scope.contestCreate.stepOne.startDate = new Date($scope.contestCreate.stepOne.startDate).toISOString();
+        $scope.contestCreate.stepOne.endDate = new Date($scope.contestCreate.stepOne.endDate).toISOString();
         AdminService.completeFirstStep($scope.contestCreate.stepOne).then(
         function(response){
-            console.log(response);
             $scope.contestCreate.currentState += 1;
         });
     }

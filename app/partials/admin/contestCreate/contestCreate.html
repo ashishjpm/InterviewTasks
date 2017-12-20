@@ -18,7 +18,7 @@
 		<div class="row">
 			<div class="col-md-2"><label for="">Name</label></div>
 			<div class="col-md-4">
-				<input class="f-input md full" type="text" ng-model="contestCreate.stepOne.description">
+				<input class="f-input md full" type="text" ng-model="contestCreate.stepOne.name">
 			</div>
 		</div>
 		<div class="row">
@@ -35,11 +35,19 @@
 		</div>
 		<div class="row">
 			<div class="col-md-2"><label for="">Start Date</label></div>
-			<div class="col-md-4"><input class="f-input md full" type="text"></div>
+			<div class="col-md-4">
+				<datepicker>
+				 	<input ng-model="contestCreate.stepOne.startDate" type="text" class="f-input md full">
+				</datepicker>
+			</div>
 		</div>
 		<div class="row">
 			<div class="col-md-2"><label for="">End Date</label></div>
-			<div class="col-md-4"><input class="f-input md full" type="text"></div>
+			<div class="col-md-4">
+				<datepicker>
+				 	<input ng-model="contestCreate.stepOne.endDate" type="text" class="f-input md full">
+				</datepicker>
+			</div>
 		</div>
 		<div class="row">
 			<div class="col-md-2"><label for="">Open Contest</label></div>
@@ -82,8 +90,9 @@
 	</form>
 
 	<div class="pull-right">
-		<button class="btn" ng-click="create()">
-			Add Questions
+		<button
+			class="btn btn-iv-red xlg" ng-click="create()">
+			{{contestCreate.currentState == 3 ? 'Add Contest' : 'Next'}}
 		</button>
 	</div>
 
