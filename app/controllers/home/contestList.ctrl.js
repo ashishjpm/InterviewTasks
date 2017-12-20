@@ -8,16 +8,22 @@
 ;
 (function() {
  falcon
-    .controller('ContestListCtrl', ['$scope', 'CommonService',
-    	function($scope, CommonService) {
+    .controller('ContestListCtrl', ['$scope', '$state', 'CommonService',
+    	function($scope, $state, CommonService) {
     	$scope.contestList = {};
 
     	function init(){
+    		$scope.root.userSelected = "My Contests";
     		$scope.contestList.type = ['All', 'Ongoing', 'Completed']
     		$scope.contestList.typeSelected = 'All';
     		$scope.contestList.list = [1,2,3]
     	}
 
-        init();
+    	$scope.contestList.getDetails = function(item){
+    		$scope.root.user.currentContestDetail = item;
+    		$state.go('home.contestDetail');
+    	}
+
+      init();
     }]);
 }());

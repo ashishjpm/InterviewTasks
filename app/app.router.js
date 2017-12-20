@@ -27,6 +27,12 @@ falcon
             templateUrl: 'app/partials/home/contestList/contestList.html',
             controller: 'ContestListCtrl'
         })
+    $stateProvider
+        .state('home.contestDetail', {
+            url: '/contestDetail',
+            templateUrl: 'app/partials/home/contestDetail/contestDetail.html',
+            controller: 'ContestDetailCtrl'
+        })
 
     //=========  Admin routes  =========
     $stateProvider

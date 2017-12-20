@@ -12,9 +12,10 @@
 			<div 
 				class="col-md-4" 
 				ng-repeat="item in contestList.list"
+				ng-click="contestList.getDetails(item)"
 				ng-if="contestList.typeSelected == 'All' || contestList.typeSelected == item.status">
 					<div class="f-card">
-						<p>{{item.name}}</p>
+						<p>{{item}}</p>
 						<span>{{item.participants}}</span>
 						<span>{{item.isActive}}</span>
 						<span>{{item.endsIn}}</span>
