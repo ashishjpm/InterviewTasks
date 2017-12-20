@@ -19,7 +19,7 @@ falcon
         .state('home', {
             url: '/home',
             templateUrl: 'app/partials/home/home.html',
-            controller: 'HomeCtrl'
+            abstract: true
         })
     $stateProvider
         .state('home.contestList', {

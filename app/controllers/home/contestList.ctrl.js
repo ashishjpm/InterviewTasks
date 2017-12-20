@@ -13,6 +13,9 @@
     	$scope.contestList = {};
 
     	function init(){
+    		$scope.contestList.type = ['All', 'Ongoing', 'Completed']
+    		$scope.contestList.typeSelected = 'All';
+    		$scope.contestList.list = [1,2,3]
     	}
 
         init();
