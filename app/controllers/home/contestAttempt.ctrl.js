@@ -8,8 +8,8 @@
 ;
 (function() {
  falcon
-    .controller('ContestAttemptCtrl', ['$scope', 'CommonService',
-    	function($scope, CommonService) {
+    .controller('ContestAttemptCtrl', ['$scope', 'CommonService', 'UserService',
+    	function($scope, CommonService, UserService) {
     	$scope.contestAttempt = {};
 
     	function init(){
@@ -19,6 +19,18 @@
             	'completed' : false,
             	'unAttempted' : false
             }
+    	}
+
+    	function getOngoingAttemptList(){
+    		$scope.contestAttempt.list = [];
+    		UserService.getContestAttemptList($scope.root.user.ongoingContestId).then(
+    			function(response){
+    				$scope.contestAttempt.list = response.data.responseObject.contestQuestionDTOs;
+    			},
+    			function(err){
+
+    			}
+    		);
     	}
 
         init();

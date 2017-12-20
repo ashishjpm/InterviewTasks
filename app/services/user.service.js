@@ -10,11 +10,14 @@
 (function() {
     falcon
     .factory('UserService', function($http, AppConstant) {
-        function dummy(id){
-            return null;
+        function getContestAttemptList(id){
+            return $http({
+                url: AppConstant.api + 'contest/' + id,
+                method: 'GET',
+            })
         }
         return {
-            dummy: dummy
+            getContestAttemptList : getContestAttemptList
         };
     });
 }());
