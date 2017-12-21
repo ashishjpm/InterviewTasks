@@ -15,7 +15,7 @@
     function init(){
         $scope.root.admin.showAddBtn = false;
         $scope.contestCreate.currentState = 1;
-        $scope.contestCreate.contestId = $scope.contestCreate.contestId || 1;
+        $scope.contestCreate.contestId = $scope.contestCreate.contestId;
 
         $scope.contestCreate.stepOne = {
             name: "",
@@ -72,7 +72,7 @@
                             "contestId": $scope.contestCreate.contestId,
                             "negativePoints": question.negativePoints || 0,
                             "points": question.marks || 1,
-                            "questionId": question.questionId || 1,
+                            "questionId": question.questionId,
                             "questionTitle": question.title
                         });
                     });
@@ -89,7 +89,7 @@
     }
 
     $scope.finalizeConfigurations = function(){
-        AdminService.saveContestConfigration($scope.contestCreate.contestId, $scope.contestCreate.stepThree.invites).then(
+        AdminService.saveContestConfigration($scope.contestCreate.contestId, $scope.contestCreate.stepThree).then(
             function(response){
                 $scope.contestCreate.currentState += 1;
             },
@@ -133,15 +133,14 @@ $scope.fetchCategories();
     }
 
     $scope.addInvitee = function(){
-        $scope.contestCreate.stepThree.invites.push({
-            category: "",
-            level: "",
-            number: "",
+        $scope.contestCreate.stepThree.inviteeDTOs.push({
+            "contestId": $scope.contestCreate.contestId,
+            email : ""
         });
     }
 
     $scope.removeInvitee = function(index){
-        $scope.contestCreate.stepThree.invites.splice(index, 1);
+        $scope.contestCreate.stepThree.inviteeDTOs.splice(index, 1);
     }
 
 

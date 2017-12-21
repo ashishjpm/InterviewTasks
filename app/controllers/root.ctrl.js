@@ -21,8 +21,12 @@
       $scope.root.user.activeContestId = 1;
   	}
 
-  	$scope.root.admin.gotoState = function(stateName){
-  		$state.go(stateName);
+  	$scope.root.admin.gotoState = function(){
+      var map = {
+        "My Contests": "admin.contestCreate",
+        "My Questions": "admin.questionCreate"
+      }
+  		$state.go(map[$scope.root.adminSelected]);
   		$scope.root.admin.showAddBtn = false;
   	}
 

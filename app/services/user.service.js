@@ -22,7 +22,21 @@
                 method: 'GET'
             })
         }
+
+        function testCode(language, questionId, source){
+            return $http({
+                url: AppConstant.api + 'engine/get-result?languageId='+language+'&questionId='+questionId+'&source='+source,
+                method: 'GET'
+            })
+        }
+
         function getContestDetail(id){
+            return $http({
+                url: AppConstant.api + 'contest/' + id,
+                method: 'GET',
+            })
+        }
+        function getContestQuestions(id){
         	return $http({
 	            url: AppConstant.api + 'contest/' + id,
 	            method: 'GET',
@@ -39,6 +53,8 @@
             getContestList: getContestList,
             getLanguage: getLanguage,
             getUserContestList: getUserContestList
+            testCode:testCode,
+            getContestQuestions: getContestQuestions
         };
     });
 }());

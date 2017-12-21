@@ -11,22 +11,32 @@
     .controller('ContestAttemptCtrl', ['$scope', '$state' ,'CommonService', 'UserService',
     	function($scope, $state, CommonService, UserService) {
     	$scope.contestAttempt = {};
-
-    	function init(){
+        function init(){
             $scope.root.userSelected = "Ongoing Contest";
+            $scope.contestAttempt.langData = [];
             $scope.contestAttempt.activeQuestion = {
             	'inProgress' : true,
             	'completed' : false,
             	'unAttempted' : false
             }
-            $scope.contestAttempt.langData = [];
             getLang();
+            getQueDetails();
     	}
 
         function getLang(){
             UserService.getLanguage().then(
                 function(response){
                     $scope.contestAttempt.langData = response.data.responseObject;
+                },
+                function(err){console.log(err);}
+            );
+        }
+
+        function getQueDetails(){
+            // $scope.root.user.currentContestDetail.id
+            UserService.getContestQuestions(79).then(
+                function(response){
+                    $scope.contestAttempt.queDetails = response.data.responseObject.contestQuestionDTOs;
                 },
                 function(err){console.log(err);}
             );
@@ -39,14 +49,25 @@
     				$scope.contestAttempt.list = response.data.responseObject.contestQuestionDTOs;
     			},
     			function(err){
-
+                    console.log(err);
     			}
     		);
     	}
 
+
         $scope.contestAttempt.finishTest=function(){
             $state.go('home.contestList');
         }
+
+
+        $scope.submitCode = function(){
+            var code = myCodeMirror.getValue();
+            var language = $scope.contestAttempt.language;
+            console.log(code, language);
+            UserService.testCode(language, 54, code).then(function (response) {
+                console.log(response);
+            })
+        };
 
         init();
     }]);

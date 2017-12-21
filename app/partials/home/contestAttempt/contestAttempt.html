@@ -1,7 +1,12 @@
 <div class="admin-contest-attempt">
 	<div class="sidebar">
+<<<<<<< HEAD
 		<div ng-class="['question-list']" ng-repeat="item in [1,2,3,4]">
-			<span 
+			<span
+=======
+		<div ng-class="['question-list']" ng-repeat="item in contestAttempt.queDetails">
+			<span
+>>>>>>> 8b1154709a04ff7335b941e6cd495a9b6aedb56e
 				ng-class="['mark',
 					{'correct': contestAttempt.activeQuestion.completed},
 					{'attempted':contestAttempt.activeQuestion.inProgress},
@@ -25,8 +30,8 @@
 		</div>
 
 		<div class="lang-select text-right">
-			<select name="" id="" class="f-select margin-right-30">
-				<option ng-repeat="item in contestAttempt.langData" value="item.id">{{item.name}}</option>
+			<select name="" id="" class="f-select margin-right-30" ng-model="contestAttempt.language">
+				<option ng-repeat="item in contestAttempt.langData" value="{{item.id}}">{{item.name}}</option>
 			</select>
 		</div>
 
@@ -34,12 +39,12 @@
 			<div id="code"></div>
 		</div>
 
-		<div class="margin-right-30">
-			<button class="btn btn-white lg pull-right">Run Test</button>
-			<button class="btn btn-iv-red lg pull-right">Submit</button>
+		<div class="margin-right-30 clearfix">
+			<button class="btn btn-iv-red lg pull-right margin-left-10" ng-click="submitCode()">Submit</button>
+			<button class="btn btn-grey lg pull-right" ng-click="testCode()">Run Test</button>
 		</div>
 
-		<div class="test-case-result">
+		<div class="test-case-result clearfix">
 			<div class="col-md-2" ng-repeat="item in [true,false,true] track by $index">
 				<span ng-class="['mark', {'correct': item}, {'failed': !item}]">
 					<i ng-if="item" class="material-icons">done</i>
