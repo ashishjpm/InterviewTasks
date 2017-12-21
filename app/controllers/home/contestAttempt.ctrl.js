@@ -34,7 +34,7 @@
 
     	function getOngoingAttemptList(){
     		$scope.contestAttempt.list = [];
-    		UserService.getContestAttemptList($scope.root.user.ongoingContestId).then(
+    		UserService.getContestDetail($scope.root.user.activeContestId).then(
     			function(response){
     				$scope.contestAttempt.list = response.data.responseObject.contestQuestionDTOs;
     			},
