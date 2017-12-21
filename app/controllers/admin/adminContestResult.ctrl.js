@@ -17,7 +17,7 @@
             $scope.root.adminSelected = "Contest Result";
             $scope.contestResult.data = {};
             $scope.contestResult.contestName = localStorage.getItem('contestName');
-            getContestResult();           
+            getContestResult();
         }
 
         function getContestResult(){
