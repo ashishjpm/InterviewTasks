@@ -36,6 +36,20 @@
             })
         }
 
+        function submitCode(language, questionId, source){
+            return $http({
+                url: AppConstant.api + 'questionresponse/'+ questionId + '/save-response',
+                method: 'POST',
+                data:[{
+                    "contestId": 10001,
+                    "program": source,
+                    "languageId":language,
+                    "questionId": questionId,
+                    "timeTaken": 0
+                }]
+            })
+        }
+
         function getContestDetail(id){
             return $http({
                 url: AppConstant.api + 'contest/' + id,
@@ -60,6 +74,7 @@
             getLanguage: getLanguage,
             getUserContestList: getUserContestList,
             testCode:testCode,
+            submitCode:submitCode,
             getContestQuestions: getContestQuestions
         };
     });
