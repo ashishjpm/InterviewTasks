@@ -70,8 +70,9 @@
         $scope.testCode = function(){
             var code = myCodeMirror.getValue();
             var language = $scope.contestAttempt.language;
+            var questionId = $scope.contestAttempt.currentQue.questionId;
             $scope.contestAttempt.testCaseResults=[];
-            UserService.testCode(language, 54, code).then(function (response) {
+            UserService.testCode(language, questionId, code).then(function (response) {
                 $scope.contestAttempt.testCaseResults = response.data.responseObject;
             })
         };
@@ -79,7 +80,9 @@
         $scope.submitCode = function(){
             var code = myCodeMirror.getValue();
             var language = $scope.contestAttempt.language;
-            UserService.submitCode(language, 54, code).then(function (response) {
+            var questionId = $scope.contestAttempt.currentQue.questionId;
+            var contestId = $scope.contestAttempt.currentQue.contestId;
+            UserService.submitCode(conest, language, questionId, code).then(function (response) {
                 console.log(response);
             })
         };
