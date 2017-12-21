@@ -16,7 +16,7 @@
             $scope.root.admin.showAddBtn = true;
             $scope.root.adminSelected = "Question Details";
             $scope.adminQuestionDetails.typeList = ['SCQ','MCQ','Coding'];
-            $scope.adminQuestionDetails.type = 'Coding';
+            $scope.adminQuestionDetails.type = localStorage.getItem('questionType');
             $scope.adminQuestionDetails.value = {}; 
             getQuestionDetails();           
         }

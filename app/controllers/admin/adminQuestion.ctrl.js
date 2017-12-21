@@ -33,6 +33,7 @@
 
         $scope.adminQuestion.getQuestionDetails = function(question){
             localStorage.setItem('questionId', question.id);
+            localStorage.setItem('questionType', question.type);
             $state.go('admin.questionDetail');
         }
 
