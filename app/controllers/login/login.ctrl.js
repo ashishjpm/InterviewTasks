@@ -31,6 +31,7 @@
 //        		}
 //    		);
             myStorage = window.localStorage;
+            $scope.root.activeUserName = $scope.login.username;
             if ($scope.login.username === 'admin') {
                 myStorage.setItem('userId', '5');
                 $scope.root.activeUser = '5';

@@ -16,6 +16,13 @@
 		ng-if="root.admin.showAddBtn">
 			<i class="material-icons">add</i>
 	</span>
+	<span class="task-select user-logout user-dropdown pull-right">
+		<span class="task-title">{{root.activeUserName}}</span>
+		<i class="material-icons">keyboard_arrow_down</i>
+		<div class="task-dropdown">
+			<div ui-sref="login">Logout</div>
+		</div>
+	</span>
 </header>
 
 <section>

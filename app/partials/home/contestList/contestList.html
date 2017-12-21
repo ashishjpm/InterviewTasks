@@ -13,7 +13,7 @@
 				class="col-md-4" 
 				ng-repeat="item in contestList.list"
 				ng-click="contestList.getDetails(item)"
-				ng-if="contestList.typeSelected == 'All' || contestList.typeSelected == item.status">
+				ng-if="(contestList.typeSelected == 'All' || contestList.typeSelected == item.status) && item.isActive && item.status != 'DRAFT'">
 					<div class="f-card">
 						<div class="cart-title">{{item.name}}</div>
 						<div class="padding-left-20">
