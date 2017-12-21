@@ -8,8 +8,8 @@
 ;
 (function() {
  falcon
-    .controller('ContestAttemptCtrl', ['$scope', '$state' ,'CommonService', 'UserService',
-    	function($scope, $state, CommonService, UserService) {
+    .controller('ContestAttemptCtrl', ['$timeout','$scope', '$state' ,'CommonService', 'UserService',
+    	function($timeout, $scope, $state, CommonService, UserService) {
         $scope.root.activeUser = window.localStorage.getItem('userId');
         $scope.root.activeContest = window.localStorage.getItem('contestId');
         $scope.contestAttempt = {};
@@ -45,7 +45,7 @@
         }
 
         function getQueDetails(){
-            UserService.getContestQuestions(71).then(
+            UserService.getContestQuestions($scope.root.activeContest).then(
                 function(response){
                     $scope.contestAttempt.queDetails = response.data.responseObject.contestQuestionDTOs;
                     $scope.contestAttempt.currentQue = $scope.contestAttempt.queDetails[0];
@@ -126,7 +126,7 @@
                 }
             );
         }
-        
+
         init();
     }]);
 }());
