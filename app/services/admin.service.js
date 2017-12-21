@@ -54,7 +54,18 @@
                 method : 'GET'
             })
         }
-
+        function getAllQuestions(){
+            return $http({
+                url: AppConstant.api + 'question/getAllQuestions',
+                method: 'GET'
+            })
+        }
+        function getQuestionDetails(id){
+            return $http({
+                url: AppConstant.api + 'question/getQuestions/'+id,
+                method: 'GET'
+            })
+        }
 
         return {
             getContestList: getContestList,
@@ -62,8 +73,9 @@
             completeSecondStep:addQuestionToContestTemplate,
             fetchContestQuestions : fetchContestQuestions,
             saveContestConfigration:saveConfiguration,
-            getCategories : getCategories
-
+            getCategories : getCategories,
+            getAllQuestions: getAllQuestions,
+            getQuestionDetails: getQuestionDetails
         };
     });
 }());

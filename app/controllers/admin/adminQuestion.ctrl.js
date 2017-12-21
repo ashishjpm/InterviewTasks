@@ -8,8 +8,8 @@
 ;
 (function() {
  falcon
-    .controller('QuestionCtrl', ['$scope', 'CommonService',
-        function($scope, CommonService) {
+    .controller('QuestionCtrl', ['$scope', '$state', 'CommonService', 'AdminService',
+        function($scope, $state, CommonService, AdminService) {
         $scope.adminQuestion = {};
 
         function init(){
@@ -17,7 +17,25 @@
         	$scope.root.adminSelected = "My Questions";
         	$scope.adminQuestion.type = ['All', 'MCQ', 'SCQ', 'Coding'];
         	$scope.adminQuestion.typeSelected = 'All';
+            $scope.adminQuestion.list = [];
+            updateQuestionList();
         }
+
+        function updateQuestionList(){
+            $scope.adminQuestion.list = [];
+            AdminService.getAllQuestions().then(
+                function(response){
+                    $scope.adminQuestion.list = response.data.responseObject;
+                },
+                function(err){ console.log(err); }
+            );
+        }
+
+        $scope.adminQuestion.getQuestionDetails = function(question){
+            localStorage.setItem('questionId', question.id);
+            $state.go('admin.questionDetail');
+        }
+
         init();
     }]);
 }());
