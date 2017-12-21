@@ -84,6 +84,10 @@
     	}
 
         $scope.contestAttempt.finishTest=function(){
+            UserService.finishContest(localStorage.getItem('userId'),localStorage.getItem('contestId')).then(
+                function(response){},
+                function(err){console.log(err);}
+            );
             $state.go('home.contestList');
         }
 
@@ -117,6 +121,7 @@
             )
         };
 
+<<<<<<< Updated upstream
         $scope.submitOptions = function(){
             var reqBody = [{
                 "contestId": 10001,
@@ -139,6 +144,8 @@
             );
         }
 
+=======
+>>>>>>> Stashed changes
         init();
     }]);
 }());
