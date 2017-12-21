@@ -2,8 +2,8 @@
 	<div class="sidebar">
 		<div
 			ng-class="['question-list', {'active': (item.id == contestAttempt.currentQue.id)}]"
-			ng-repeat="item in contestAttempt.queDetails"
-			ng-click="contestAttempt.updateQue(item)">
+			ng-repeat="item in contestAttempt.queDetails track by $index"
+			ng-click="contestAttempt.updateQue(item, $index)">
 				<span
 					ng-class="['mark',
 						{'correct': contestAttempt.activeQuestion.completed},
@@ -70,7 +70,7 @@
 						<label>
 							<input
 								type="radio"
-								ng-model="contestAttempt.selectedSCQ"
+								ng-model="contestAttempt.selectedSCQ[contestAttempt.currentQue.questionId]"
 								ng-value="item.optionId"
 								name="questionType">
 							{{item.value}}

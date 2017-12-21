@@ -53,19 +53,11 @@
             })
         }
 
-        function submitOptions(questionId, optionValue, marks, negativeMarks){
+        function submitOptions(reqBody, questionId){
             return $http({
                 url: AppConstant.api + 'questionresponse/'+ questionId + '/save-response',
                 method: 'POST',
-                data:[{
-                    "contestId": 10001,
-                    "answerGiven": [optionValue],
-                    "questionId": questionId,
-                    "timeTaken": 0,
-                    "marks": marks,
-                    "negativeMarks": negativeMarks,
-                    "questionType": "SINGLE_CORRECT"
-                }]
+                data: reqBody
             })
         }
 
@@ -87,6 +79,16 @@
                 method: 'GET'
             })
         }
+        function finishContest(userId, contestId){
+            return $http({
+                url: AppConstant.api + 'contest/submit/',
+                method: 'POST',
+                data: {
+                    userId: userId,
+                    contestId: contestId
+                }
+            })
+        }
         return {
             getContestDetail: getContestDetail,
             getContestList: getContestList,
@@ -95,7 +97,8 @@
             testCode:testCode,
             submitCode:submitCode,
             getContestQuestions: getContestQuestions,
-            submitOptions: submitOptions
+            submitOptions: submitOptions,
+            finishContest: finishContest
         };
     });
 }());

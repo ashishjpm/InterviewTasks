@@ -8,8 +8,8 @@
 ;
 (function() {
  falcon
-    .controller('ContestAttemptCtrl', ['$timeout','$scope', '$state' ,'CommonService', 'UserService',
-    	function($timeout, $scope, $state, CommonService, UserService) {
+    .controller('ContestAttemptCtrl', ['$scope', '$state' ,'$timeout','CommonService', 'UserService',
+    	function($scope, $state, $timeout, CommonService, UserService) {
         $scope.root.activeUser = window.localStorage.getItem('userId');
         $scope.root.activeContestId = window.localStorage.getItem('contestId');
         $scope.contestAttempt = {};
@@ -48,7 +48,8 @@
             UserService.getContestQuestions($scope.root.activeContestId).then(
                 function(response){
                     $scope.contestAttempt.queDetails = response.data.responseObject.contestQuestionDTOs;
-                    $scope.contestAttempt.currentQue = $scope.contestAttempt.queDetails[0];
+                    $scope.contestAttempt.currentIndex = 0;
+                    $scope.contestAttempt.currentQue = $scope.contestAttempt.queDetails[$scope.contestAttempt.currentIndex];
                     $timeout(function() {
                         $(document).ready(function(){
                             $.material.init();
@@ -59,8 +60,9 @@
             );
         }
 
-        $scope.contestAttempt.updateQue = function(question){
+        $scope.contestAttempt.updateQue = function(question, index){
             $scope.contestAttempt.currentQue = question;
+            $scope.contestAttempt.currentIndex = index;
             $timeout(function() {
                 $(document).ready(function(){
                     $.material.init();
@@ -82,6 +84,10 @@
     	}
 
         $scope.contestAttempt.finishTest=function(){
+            UserService.finishContest(localStorage.getItem('userId'),localStorage.getItem('contestId')).then(
+                function(response){},
+                function(err){console.log(err);}
+            );
             $state.go('home.contestList');
         }
 
@@ -103,7 +109,6 @@
             var userId = $scope.root.activeUser;
             var code = myCodeMirror.getValue();
             var language = $scope.contestAttempt.language;
-
             var questionId = $scope.contestAttempt.currentQue.questionId;
             var contestId = $scope.contestAttempt.currentQue.contestId;
             UserService.submitCode(userId, contestId, language, questionId, code).then(
@@ -117,9 +122,20 @@
         };
 
         $scope.submitOptions = function(){
-            UserService.submitOptions($scope.contestAttempt.currentQue.questionId, $scope.contestAttempt.selectedSCQ, $scope.contestAttempt.currentQue.points, $scope.contestAttempt.currentQue.negativePoints).then(
+            var reqBody = [{
+                "contestId": 10001,
+                "answerGiven": [$scope.contestAttempt.selectedSCQ[$scope.contestAttempt.currentQue.questionId]],
+                "questionId": $scope.contestAttempt.currentQue.questionId,
+                "timeTaken": 0,
+                "marks": $scope.contestAttempt.currentQue.points,
+                "negativeMarks": $scope.contestAttempt.currentQue.negativePoints,
+                "questionType": "SINGLE_CORRECT"
+            }]
+            UserService.submitOptions(reqBody,$scope.contestAttempt.currentQue.questionId).then(
                 function(response){
                     console.log("success");
+                    $scope.contestAttempt.currentIndex = $scope.contestAttempt.currentIndex + 1;
+                    $scope.contestAttempt.currentQue = $scope.contestAttempt.queDetails[$scope.contestAttempt.currentIndex];
                 },
                 function(err){
 
