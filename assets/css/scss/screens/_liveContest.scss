@@ -11,6 +11,10 @@
 		.question-list{
 			padding: 20px 15px 15px 30px;
 			cursor: pointer;
+			&.active{
+				color: $iv-red;
+				font-weight: 400; 
+			}
 			.question{
 				padding-left: 15px;
 			}

@@ -19,6 +19,8 @@
             	'completed' : false,
             	'unAttempted' : false
             }
+            $scope.contestAttempt.langData = [];
+            $scope.contestAttempt.currentQue = {};
             getLang();
             getQueDetails();
     	}
@@ -34,12 +36,17 @@
 
         function getQueDetails(){
             // $scope.root.user.currentContestDetail.id
-            UserService.getContestQuestions(79).then(
+            UserService.getContestQuestions(59).then(
                 function(response){
                     $scope.contestAttempt.queDetails = response.data.responseObject.contestQuestionDTOs;
+                    $scope.contestAttempt.currentQue = $scope.contestAttempt.queDetails[0];
                 },
                 function(err){console.log(err);}
             );
+        }
+
+        $scope.contestAttempt.updateQue = function(question){
+            $scope.contestAttempt.currentQue = question;
         }
 
     	function getOngoingAttemptList(){
@@ -54,11 +61,9 @@
     		);
     	}
 
-
         $scope.contestAttempt.finishTest=function(){
             $state.go('home.contestList');
         }
-
 
         $scope.submitCode = function(){
             var code = myCodeMirror.getValue();
