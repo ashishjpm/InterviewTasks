@@ -19,7 +19,7 @@
         }
 
         $scope.login.submit = function(){
-        	LoginService.postLogin($scope.login.username, $scope.login.password);
+        	// LoginService.postLogin($scope.login.username, $scope.login.password);
 //        	.then(
 //        		function(response){
 //        			if(response.success){
@@ -30,6 +30,12 @@
 //        			console.log(err);
 //        		}
 //    		);
+        
+            if ($scope.login.username === 'admin') {
+                $state.go('admin.contest');
+            }else {
+                $state.go('home.contestList');
+            }
         }
 
         init();

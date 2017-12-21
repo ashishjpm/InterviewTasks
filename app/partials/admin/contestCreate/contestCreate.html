@@ -103,20 +103,20 @@
 	<form action="" ng-if="contestCreate.currentState == 2">
 		<div class="row" ng-repeat="item in contestCreate.fixedQueMeta track by $index">
 			<div class="col-md-3">
-				<select name="" id="" ng-model="item.category">
+				<select name="" id="" ng-model="item.category" class="f-select full">
 					<option value="" disbaled selected>-- Choose Category --</option>
 					<option value="java" selected>java</option>
 					<option value="das">dsa</option>
 				</select>
 			</div>
 			<div class="col-md-3">
-				<select name="" id="" ng-model="item.level">
+				<select name="" id="" ng-model="item.level" class="f-select full">
 					<option value="" disbaled selected>-- Choose Question --</option>
 					<option value="easy">easy</option>
 					<option value="medium">medium</option>
 				</select>
 			</div>
-			<div class="col-md-3"><input ng-model="item.number" type="text" placeholder="Input Question Count"></div>
+			<div class="col-md-3"><input ng-model="item.number" type="text" placeholder="Input Question Count" class="f-input md full"></div>
 			<div class="col-md-3">
 				<i class="material-icons" ng-if="$index == contestCreate.fixedQueMeta.length -1" ng-click="addCategory()">add_circle</i>
 				<i class="material-icons" ng-if="$index != contestCreate.fixedQueMeta.length -1" ng-click="removeCategory($index)">close</i>

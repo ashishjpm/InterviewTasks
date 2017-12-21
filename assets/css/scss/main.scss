@@ -31,9 +31,19 @@ body{
 		i{
 			color: $white;
 			position: relative;
-		    top: 1px;
-		    left: 2px;
-		    font-size: 13px;
+	    top: 1px;
+	    left: 2px;
+	    font-size: 13px;
+		}
+	}
+	&.failed{
+		background: $iv-red;
+		i{
+			color: $white;
+			position: relative;
+	    top: 1px;
+	    left: 2px;
+	    font-size: 13px;
 		}
 	}
 	&.attempted{
