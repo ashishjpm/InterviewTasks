@@ -25,6 +25,13 @@ body{
 	@include font-light(0,100);
 }
 
+.elipsis{
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: inline-block;
+  overflow: hidden;
+}
+
 .mark{
 	padding: 1px;
 	border-radius: 50%;
