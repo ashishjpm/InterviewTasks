@@ -22,14 +22,6 @@
                 method: 'GET'
             })
         }
-        return {
-            getContestList: getContestList,
-            getLanguage: getLanguage
-	        return $http({
-	            url: AppConstant.api + 'contest/view-contest-list',
-	            method: 'GET',
-	        })
-        }
         function getContestDetail(id){
         	return $http({
 	            url: AppConstant.api + 'contest/' + id,
@@ -37,8 +29,9 @@
 	        })
         }
         return {
+            getContestDetail: getContestDetail,
             getContestList: getContestList,
-            getContestDetail: getContestDetail
+            getLanguage: getLanguage
         };
     });
 }());
