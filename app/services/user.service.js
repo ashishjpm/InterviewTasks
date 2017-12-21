@@ -36,12 +36,13 @@
             })
         }
 
-        function submitCode(contest, language, questionId, source){
+        function submitCode(user, contest, language, questionId, source){
             return $http({
                 url: AppConstant.api + 'questionresponse/'+ questionId + '/save-response',
                 method: 'POST',
                 data:[{
-                    "contestId": conest,
+                    "userId":user,
+                    "contestId": contest,
                     "program": source,
                     "languageId":language,
                     "questionId": questionId,

@@ -25,11 +25,22 @@
         return (Array(digit+1).join("0")+number).slice(-digit);
     }
 
-    function covertTimeToString(millis){
-        var date = new Date(millis);
-        return padding(2, Math.floor(date.getHours()/24)) + ":"
-        + padding(2, Math.floor(date.getHours()%24)) + ":"
-        + padding(2, Math.floor(date.getMinutes()));
+    function covertTimeToString(timeInMilliSeconds){
+        var minutesInMilli =  60000;
+        var hoursInMilli = minutesInMilli * 60;
+        var daysInMilli = hoursInMilli * 24;
+        var elapsedDays = timeInMilliSeconds / daysInMilli;
+        timeInMilliSeconds = timeInMilliSeconds % daysInMilli;
+
+        var elapsedHours = timeInMilliSeconds / hoursInMilli;
+        timeInMilliSeconds = timeInMilliSeconds % hoursInMilli;
+
+        var elapsedMinutes = timeInMilliSeconds / minutesInMilli;
+        timeInMilliSeconds = timeInMilliSeconds % minutesInMilli;
+
+        return padding(2, elapsedDays) + ":"
+        + padding(2, elapsedHours) + ":"
+        + padding(2, elapsedMinutes);
     }
 
     function updateAdminContestList(){

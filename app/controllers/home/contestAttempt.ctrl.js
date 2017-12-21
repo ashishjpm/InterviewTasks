@@ -10,7 +10,10 @@
  falcon
     .controller('ContestAttemptCtrl', ['$scope', '$state' ,'CommonService', 'UserService',
     	function($scope, $state, CommonService, UserService) {
-    	$scope.contestAttempt = {};
+        $scope.root.activeUser = window.localStorage.getItem('userId');
+        $scope.root.activeContest = window.localStorage.getItem('contestId');
+
+        $scope.contestAttempt = {};
 
         function init(){
             $scope.root.userSelected = "Ongoing Contest";
@@ -37,8 +40,7 @@
         }
 
         function getQueDetails(){
-            // $scope.root.user.currentContestDetail.id
-            UserService.getContestQuestions(59).then(
+            UserService.getContestQuestions(71).then(
                 function(response){
                     $scope.contestAttempt.queDetails = response.data.responseObject.contestQuestionDTOs;
                     $scope.contestAttempt.currentQue = $scope.contestAttempt.queDetails[0];
@@ -53,7 +55,8 @@
 
     	function getOngoingAttemptList(){
     		$scope.contestAttempt.list = [];
-    		UserService.getContestDetail($scope.root.user.activeContestId).then(
+            console.log("contestId", $scope.root.user.activeContest);
+    		UserService.getContestDetail($scope.root.user.activeContest).then(
     			function(response){
     				$scope.contestAttempt.list = response.data.responseObject.contestQuestionDTOs;
     			},
@@ -68,6 +71,7 @@
         }
 
         $scope.testCode = function(){
+            console.log('userid', $scope.root.activeUser);
             var code = myCodeMirror.getValue();
             var language = $scope.contestAttempt.language;
             var questionId = $scope.contestAttempt.currentQue.questionId;
@@ -78,11 +82,12 @@
         };
 
         $scope.submitCode = function(){
+            var userId = $scope.root.activeUser;
             var code = myCodeMirror.getValue();
             var language = $scope.contestAttempt.language;
             var questionId = $scope.contestAttempt.currentQue.questionId;
             var contestId = $scope.contestAttempt.currentQue.contestId;
-            UserService.submitCode(conest, language, questionId, code).then(function (response) {
+            UserService.submitCode(userId, contestId, language, questionId, code).then(function (response) {
                 console.log(response);
             })
         };

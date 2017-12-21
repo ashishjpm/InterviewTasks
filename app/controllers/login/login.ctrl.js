@@ -30,11 +30,14 @@
 //        			console.log(err);
 //        		}
 //    		);
-            $scope.root.activeUser = $scope.login.username;
+            myStorage = window.localStorage;
             if ($scope.login.username === 'admin') {
-
+                myStorage.setItem('userId', '5');
+                $scope.root.activeUser = '5';
                 $state.go('admin.contest');
-            }else {
+            } else {
+                myStorage.setItem('userId', '1');
+                $scope.root.activeUser = '1';
                 $state.go('home.contestList');
             }
 

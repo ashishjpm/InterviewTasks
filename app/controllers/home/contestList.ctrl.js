@@ -10,6 +10,7 @@
  falcon
     .controller('ContestListCtrl', ['$scope', '$state', 'CommonService', 'UserService',
     	function($scope, $state, CommonService, UserService) {
+        $scope.root.activeUser = $scope.root.activeUser || window.localStorage.getItem('userId');
     	$scope.contestList = {};
 
     	function init(){
@@ -54,11 +55,13 @@
             );
         }
 
-    	$scope.contestList.getDetails = function(item){
-    		$scope.root.user.currentContestDetail = item;
-    		$state.go('home.contestDetail');
-    	}
-
+        $scope.contestList.getDetails = function(item){
+            $scope.root.user.activeContest = item;
+            console.log('contest', $scope.root.user.activeContest);
+            $scope.root.user.activeContestId = $scope.root.user.activeContest.id;
+            window.localStorage.setItem('contestId', $scope.root.user.activeContestId);
+            $state.go('home.contestDetail');
+        }
       init();
     }]);
 }());
