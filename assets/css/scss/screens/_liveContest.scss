@@ -11,6 +11,11 @@
 		.question-list{
 			padding: 20px 15px 15px 30px;
 			cursor: pointer;
+		    overflow: hidden;
+		    text-overflow: ellipsis;
+		    white-space: nowrap;
+		    display: inline-block;
+		    width: 95%;
 			&.active{
 				color: $iv-red;
 				font-weight: 400; 
@@ -35,6 +40,7 @@
 		.que-title{
 			margin: 30px;
 			font-size: 30px;
+			margin-right: 20%;
 		}
 		.que-statment{
 			margin: 30px;
