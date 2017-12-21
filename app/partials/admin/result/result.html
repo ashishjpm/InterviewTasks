@@ -1,1 +1,17 @@
-this is result for contest
+<div class="admin-contest-result">
+	<div class="back-to-list">
+		<i ng-click="contestResult.backToList()" class="material-icons">arrow_back</i>
+		<span class="page-title">{{contestResult.contestName}}</span>
+		<span class="pull-right">Partecepent: {{contestResult.totalParticipents}}</span>
+	</div>
+	<div class="admin-question">
+		<div class="list-header clearfix">
+			<div class="col-md-6">Name</div>
+			<div class="col-md-6">Marks</div>
+		</div>	
+		<div class="f-card-list" ng-repeat="item in contestResult.data.resultDTO">
+			<div class="col-md-6">{{item.name}}</div>
+			<div class="col-md-6">{{item.marks}}</div>
+		</div>
+	</div>
+</div>

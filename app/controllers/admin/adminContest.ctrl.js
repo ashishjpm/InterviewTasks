@@ -8,8 +8,8 @@
 ;
 (function() {
  falcon
-  .controller('AdminContestCtrl', ['$scope', 'CommonService', 'AdminService',
-    function($scope, CommonService, AdminService) {
+  .controller('AdminContestCtrl', ['$scope', 'CommonService', 'AdminService', '$state',
+    function($scope, CommonService, AdminService, $state) {
     $scope.adminContest = {};
 
     function init(){
@@ -19,6 +19,12 @@
     	$scope.adminContest.typeSelected = 'All';
         $scope.adminContest.list = [];
         updateAdminContestList();
+    }
+
+    $scope.adminContest.getResult = function(item){
+        localStorage.setItem('contestName', item.name);
+        localStorage.setItem('contestId', item.id);
+        $state.go('admin.result');
     }
 
     function padding(digit, number){
