@@ -37,8 +37,9 @@
         AdminService.getContestList().then(
             function(response){
                 $scope.adminContest.list = [];
+                var now = new Date();
                 response.data.responseObject.forEach(function(contest){
-                    var now = new Date();
+                    console.log(contest.startDate, contest.endDate);
                     $scope.adminContest.list.push({
                         name : contest.name,
                         status : $scope.adminContest.type[Math.floor(Math.random() * 4)],

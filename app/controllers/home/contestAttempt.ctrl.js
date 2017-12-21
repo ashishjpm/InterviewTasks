@@ -59,7 +59,6 @@
         $scope.submitCode = function(){
             var code = myCodeMirror.getValue();
             var language = $scope.contestAttempt.language;
-            console.log(code, language);
             UserService.testCode(language, 54, code).then(function (response) {
                 console.log(response);
             })
