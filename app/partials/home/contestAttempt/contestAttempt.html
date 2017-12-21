@@ -40,6 +40,12 @@
 			  });
 			</script>
 			<div class="margin-right-30 clearfix" ng-show="!contestAttempt.loader">
+				<span 	
+					class="pull-left" 
+					style="padding-left: 30px;color: red;" 
+					ng-if="contestAttempt.err">
+						Compile Error: {{contestAttempt.errText}}
+				</span>
 				<button class="btn btn-iv-red lg pull-right margin-left-10" ng-click="submitCode()">Submit</button>
 				<button class="btn btn-grey lg pull-right" ng-click="testCode()">Run Test</button>
 			</div>

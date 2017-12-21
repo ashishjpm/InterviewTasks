@@ -15,6 +15,7 @@
         $scope.contestAttempt = {};
 
         function init(){
+            $scope.contestAttempt.err = false;
             $scope.root.userSelected = window.localStorage.getItem('contestName');
             $scope.contestAttempt.loader = false;
             $scope.contestAttempt.langData = [];
@@ -100,7 +101,8 @@
             $scope.contestAttempt.testCaseResults=[];
             UserService.testCode(language, questionId, code).then(function (response) {
                 $scope.contestAttempt.loader = false;
-
+                $scope.contestAttempt.err = (response.data.status == 'SPHERE_ENGINE_COMPILATION_FAILED');
+                $scope.contestAttempt.errText = response.data.errorMessage;
                 $scope.contestAttempt.testCaseResults = response.data.responseObject;
             },function(err){$scope.contestAttempt.loader = false;})
         };
