@@ -1,6 +1,6 @@
 /**
 * @ngdoc function
-* @name falcon.controller.QuestionDetailCtrl
+* @name falcon.controller.QuestionCreateCtrl
 * @description controller for Root model
 * @author Ashish Mishra <ashishjpm@gmail.com>
 */
@@ -8,21 +8,20 @@
 ;
 (function() {
  falcon
-    .controller('QuestionDetailCtrl', ['$scope', '$state' ,'CommonService',
+    .controller('QuestionCreateCtrl', ['$scope', '$state' ,'CommonService',
         function($scope, $state ,CommonService) {
-        $scope.adminQuestionDetails = {};
+        $scope.adminQuestionCreate = {};
 
         function init(){
-        	$scope.root.admin.showAddBtn = true;
-        	$scope.root.adminSelected = "Question Details";
-            $scope.adminQuestionDetails.typeList = ['SCQ','MCQ','Coding'];
-            $scope.adminQuestionDetails.type = 'Coding';        	
+            $scope.root.admin.showAddBtn = false;
+            $scope.root.adminSelected = "Question Create";
         }
 
-        $scope.adminQuestionDetails.backToList = function(){
+        $scope.adminQuestionCreate.backToList = function(){
             $state.go('admin.question');
         }
 
         init();
     }]);
 }());
+
