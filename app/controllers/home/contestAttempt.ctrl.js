@@ -45,7 +45,7 @@
         }
 
         function getQueDetails(){
-            UserService.getContestQuestions($scope.root.activeContest).then(
+            UserService.getContestQuestions(localStorage.getItem('contestId')).then(
                 function(response){
                     $scope.contestAttempt.queDetails = response.data.responseObject.contestQuestionDTOs;
                     $scope.contestAttempt.currentIndex = 0;
