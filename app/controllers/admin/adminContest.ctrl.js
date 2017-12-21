@@ -57,6 +57,7 @@
                 response.data.responseObject.forEach(function(contest){
                     console.log(contest.startDate, contest.endDate);
                     $scope.adminContest.list.push({
+                        id: contest.id,
                         name : contest.name,
                         status : $scope.adminContest.type[Math.floor(Math.random() * 4)],
                         participants : contest.participantCount,

@@ -22,9 +22,10 @@
 
         function getContestResult(){
             $scope.contestResult.data = {};
+            // localStorage.getItem('contestId')
             AdminService.getContestResult(localStorage.getItem('contestId')).then(
                 function(response){
-                    $scope.contestResult.data = response;
+                    $scope.contestResult.data = response.data.responseObject;
                 },
                 function(err){console.log(err);}
             );
