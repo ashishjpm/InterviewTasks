@@ -52,7 +52,7 @@
             getContestDetail: getContestDetail,
             getContestList: getContestList,
             getLanguage: getLanguage,
-            getUserContestList: getUserContestList
+            getUserContestList: getUserContestList,
             testCode:testCode,
             getContestQuestions: getContestQuestions
         };

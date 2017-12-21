@@ -23,7 +23,7 @@
 
   	$scope.root.admin.gotoState = function(){
       var map = {
-        "My Contests": "admin.contestCreate",
+        "My Contest": "admin.contestCreate",
         "My Questions": "admin.questionCreate"
       }
   		$state.go(map[$scope.root.adminSelected]);

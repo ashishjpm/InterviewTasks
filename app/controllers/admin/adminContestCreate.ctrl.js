@@ -92,6 +92,7 @@
         AdminService.saveContestConfigration($scope.contestCreate.contestId, $scope.contestCreate.stepThree).then(
             function(response){
                 $scope.contestCreate.currentState += 1;
+                $scope.contestCreate.backToList();
             },
             function(err){
 
@@ -108,7 +109,7 @@
             }
         )
     }
-$scope.fetchCategories();
+    $scope.fetchCategories();
     $scope.submit = function(){
         console.log($scope.contestCreate.currentState);
         if($scope.contestCreate.currentState == 1){
