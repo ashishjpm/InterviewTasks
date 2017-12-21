@@ -15,7 +15,7 @@
         $scope.contestAttempt = {};
 
         function init(){
-            $scope.root.userSelected = "Ongoing Contest";
+            $scope.root.userSelected = window.localStorage.getItem('contestName');
             $scope.contestAttempt.loader = false;
             $scope.contestAttempt.langData = [];
             $scope.contestAttempt.testCaseResults=[];
