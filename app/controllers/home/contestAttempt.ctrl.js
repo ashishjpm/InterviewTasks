@@ -8,8 +8,8 @@
 ;
 (function() {
  falcon
-    .controller('ContestAttemptCtrl', ['$scope', '$state' ,'CommonService', 'UserService',
-    	function($scope, $state, CommonService, UserService) {
+    .controller('ContestAttemptCtrl', ['$scope', '$state', '$timeout' ,'CommonService', 'UserService',
+    	function($scope, $state, $timeout, CommonService, UserService) {
     	$scope.contestAttempt = {};
 
         function init(){
@@ -25,6 +25,11 @@
             $scope.contestAttempt.currentQue = {};
             getLang();
             getQueDetails();
+            $timeout(function() {
+                $(document).ready(function(){
+                    $.material.init();
+                });
+            }, 0);
     	}
 
         function getLang(){
@@ -38,10 +43,15 @@
 
         function getQueDetails(){
             // $scope.root.user.currentContestDetail.id
-            UserService.getContestQuestions(59).then(
+            UserService.getContestQuestions(71).then(
                 function(response){
                     $scope.contestAttempt.queDetails = response.data.responseObject.contestQuestionDTOs;
                     $scope.contestAttempt.currentQue = $scope.contestAttempt.queDetails[0];
+                    $timeout(function() {
+                        $(document).ready(function(){
+                            $.material.init();
+                        });
+                    }, 0);
                 },
                 function(err){console.log(err);}
             );
@@ -49,6 +59,11 @@
 
         $scope.contestAttempt.updateQue = function(question){
             $scope.contestAttempt.currentQue = question;
+            $timeout(function() {
+                $(document).ready(function(){
+                    $.material.init();
+                });
+            }, 0);
         }
 
     	function getOngoingAttemptList(){
@@ -71,7 +86,7 @@
             var code = myCodeMirror.getValue();
             var language = $scope.contestAttempt.language;
             $scope.contestAttempt.testCaseResults=[];
-            UserService.testCode(language, 54, code).then(function (response) {
+            UserService.testCode(language, 71, code).then(function (response) {
                 $scope.contestAttempt.testCaseResults = response.data.responseObject;
             })
         };
@@ -79,10 +94,22 @@
         $scope.submitCode = function(){
             var code = myCodeMirror.getValue();
             var language = $scope.contestAttempt.language;
-            UserService.submitCode(language, 54, code).then(function (response) {
+            UserService.submitCode(language, 71, code).then(function (response) {
                 console.log(response);
             })
         };
+
+        $scope.submitOptions = function(){
+            UserService.submitOptions($scope.contestAttempt.currentQue.questionId, $scope.contestAttempt.selectedSCQ, $scope.contestAttempt.currentQue.points, $scope.contestAttempt.currentQue.negativePoints).then(
+                function(response){
+                    console.log("success");
+                },
+                function(err){
+
+                }
+            );
+        }
+        
         init();
     }]);
 }());

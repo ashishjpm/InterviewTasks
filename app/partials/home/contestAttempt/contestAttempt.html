@@ -57,9 +57,36 @@
 			<div class="que-title title">
 				{{contestAttempt.currentQue.statement}}
 			</div>
-			<div class="options"></div>
+			<div class="options" ng-show="(contestAttempt.currentQue.questionType == 'SINGLE_CORRECT')">
+				<div ng-repeat="item in contestAttempt.currentQue.optionDtos track by $index">
+					<div class="radio">
+						<label>
+							<input 
+								type="radio" 
+								ng-model="contestAttempt.selectedSCQ" 
+								ng-value="item.optionId"
+								name="questionType">
+							{{item.value}}
+						</label>
+					</div>
+				</div>
+			</div>
+			<!-- <div class="options" ng-show="(contestAttempt.currentQue.questionType == 'SINGLE_CORRECT')">
+				<div ng-repeat="item in contestAttempt.currentQue.optionDtos track by $index">
+					<div class="checkbox">
+						<label>
+							<input 
+								type="checkbox" 
+								name="optionsCheckboxes[]"
+								ng-model="asd[$index]">
+							{{item.value}}
+						</label>
+					</div>
+				</div>
+				{{contestAttempt.selectedMCQValues}}
+			</div> -->
 			<div class="margin-right-30 clearfix">
-				<button class="btn btn-iv-red lg pull-right margin-left-10">Submit</button>
+				<button class="btn btn-iv-red lg pull-right margin-left-10" ng-click="submitOptions()">Submit</button>
 			</div>
 		</div>
 	</div>
