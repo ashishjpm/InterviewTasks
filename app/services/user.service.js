@@ -31,6 +31,12 @@
         }
 
         function getContestDetail(id){
+            return $http({
+                url: AppConstant.api + 'contest/' + id,
+                method: 'GET',
+            })
+        }
+        function getContestQuestions(id){
         	return $http({
 	            url: AppConstant.api + 'contest/' + id,
 	            method: 'GET',
@@ -40,7 +46,8 @@
             getContestDetail: getContestDetail,
             getContestList: getContestList,
             getLanguage: getLanguage,
-            testCode:testCode
+            testCode:testCode,
+            getContestQuestions: getContestQuestions
         };
     });
 }());

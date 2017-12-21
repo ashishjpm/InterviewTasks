@@ -22,12 +22,23 @@
             	'unAttempted' : false
             }
             getLang();
+            getQueDetails();
     	}
 
         function getLang(){
             UserService.getLanguage().then(
                 function(response){
                     $scope.contestAttempt.langData = response.data.responseObject;
+                },
+                function(err){console.log(err);}
+            );
+        }
+
+        function getQueDetails(){
+            // $scope.root.user.currentContestDetail.id
+            UserService.getContestQuestions(79).then(
+                function(response){
+                    $scope.contestAttempt.queDetails = response.data.responseObject.contestQuestionDTOs;
                 },
                 function(err){console.log(err);}
             );
