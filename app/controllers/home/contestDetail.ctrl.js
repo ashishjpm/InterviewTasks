@@ -36,7 +36,6 @@
         $scope.attemptContest = function(){
             $state.go('home.contestAttempt');
         }
-
         init();
     }]);
 }());

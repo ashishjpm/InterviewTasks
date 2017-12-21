@@ -46,6 +46,7 @@
                     "contestId": contest,
                     "program": source,
                     "languageId":language,
+                    "questionType":"CODING",
                     "questionId": questionId,
                     "timeTaken": 0
                 }]
@@ -96,11 +97,8 @@
             testCode:testCode,
             submitCode:submitCode,
             getContestQuestions: getContestQuestions,
-<<<<<<< Updated upstream
-            submitOptions: submitOptions
-=======
+            submitOptions: submitOptions,
             finishContest: finishContest
->>>>>>> Stashed changes
         };
     });
 }());

@@ -68,9 +68,9 @@
 				<div ng-repeat="item in contestAttempt.currentQue.optionDtos track by $index">
 					<div class="radio">
 						<label>
-							<input 
-								type="radio" 
-								ng-model="contestAttempt.selectedSCQ[contestAttempt.currentQue.questionId]" 
+							<input
+								type="radio"
+								ng-model="contestAttempt.selectedSCQ[contestAttempt.currentQue.questionId]"
 								ng-value="item.optionId"
 								name="questionType">
 							{{item.value}}
@@ -82,8 +82,8 @@
 				<div ng-repeat="item in contestAttempt.currentQue.optionDtos track by $index">
 					<div class="checkbox">
 						<label>
-							<input 
-								type="checkbox" 
+							<input
+								type="checkbox"
 								name="optionsCheckboxes[]"
 								ng-model="asd[$index]">
 							{{item.value}}
