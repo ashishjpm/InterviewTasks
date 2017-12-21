@@ -125,23 +125,23 @@
 	</form>
 	<form action="" ng-if="contestCreate.currentState == 3">
 		<div class="row">
-			<div class="col-md-3"><label for="">Random Order Required</label></div>
+			<div class="col-md-3"><label for="randomOrder">Random Order Required</label></div>
 			<div class="col-md-4">
 				<div class="togglebutton success">
 					<label>
-				    <input type="checkbox" ng-model="contestCreate.stepThree.isRandomOrder">
+				    <input type="checkbox" id="randomOrder" ng-model="contestCreate.stepThree.isRandomOrder">
 				    {{contestCreate.stepThree.isRandomOrder}}
 					</label>
 				</div>
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-md-3"><label for="">ActivateContest</label></div>
+			<div class="col-md-3"><label for="">Activate Contest</label></div>
 			<div class="col-md-4">
 				<div class="togglebutton success">
 					<label>
-				    <input type="checkbox" ng-model="contestCreate.stepThree.activate">
-				    {{contestCreate.stepThree.activate}}
+				    	<input type="checkbox" ng-model="contestCreate.stepThree.activateContest">
+				    	{{contestCreate.stepThree.activateContest}}
 					</label>
 				</div>
 			</div>
@@ -160,7 +160,7 @@
 	<div class="pull-right">
 		<button
 			class="btn btn-iv-red xlg" ng-click="submit()">
-			{{contestCreate.currentState == 3 ? 'Add Contest' : 'Next'}}
+			{{contestCreate.currentState == 3 ? 'Save' : 'Next'}}
 		</button>
 	</div>
 

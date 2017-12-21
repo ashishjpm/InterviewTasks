@@ -61,9 +61,9 @@
     }
 
     $scope.fetchQuestions = function(){
-        AdminService.fetchContestQuestions().then(
-            function(response){
+        AdminService.fetchContestQuestions().then(function(response){
                 $scope.contestCreate.selectedQuestions = response.data.responseObject;
+                console.log($scope.contestCreate.selectedQuestions);
                 if($scope.contestCreate.selectedQuestions.length > 0){
                     var questions = [];
                     $scope.contestCreate.selectedQuestions.forEach(function(question){
@@ -91,7 +91,7 @@
     $scope.finalizeConfigurations = function(){
         AdminService.saveContestConfigration($scope.contestCreate.contestId, $scope.contestCreate.stepThree.invites).then(
             function(response){
-                console.log(response);
+                $scope.contestCreate.currentState += 1;
             },
             function(err){
 
