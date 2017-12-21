@@ -1,7 +1,7 @@
 <div class="admin-contest-attempt">
 	<div class="sidebar">
 		<div ng-class="['question-list']" ng-repeat="item in [1,2,3,4]">
-			<span 
+			<span
 				ng-class="['mark',
 					{'correct': contestAttempt.activeQuestion.completed},
 					{'attempted':contestAttempt.activeQuestion.inProgress},
@@ -25,8 +25,8 @@
 		</div>
 
 		<div class="lang-select text-right">
-			<select name="" id="" class="f-select margin-right-30">
-				<option ng-repeat="item in contestAttempt.langData" value="item.id">{{item.name}}</option>
+			<select name="" id="" class="f-select margin-right-30" ng-model="contestAttempt.language">
+				<option ng-repeat="item in contestAttempt.langData" value="{{item.id}}">{{item.name}}</option>
 			</select>
 		</div>
 
@@ -35,8 +35,8 @@
 		</div>
 
 		<div class="margin-right-30">
-			<button class="btn btn-white lg pull-right">Run Test</button>
-			<button class="btn btn-iv-red lg pull-right">Submit</button>
+			<button class="btn btn-white lg pull-right" ng-click="testCode()">Run Test</button>
+			<button class="btn btn-iv-red lg pull-right" ng-click="submitCode()">Submit</button>
 		</div>
 
 		<div class="test-case-result">

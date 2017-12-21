@@ -146,14 +146,14 @@
 				</div>
 			</div>
 		</div>
-		<div class="row" ng-repeat="item in contestCreate.stepThree.invites track by $index">
+		<div class="row" ng-repeat="item in contestCreate.stepThree.inviteeDTOs track by $index">
 			<div class="col-md-3"><label for="">User Email address</label></div>
 			<div class="col-md-4">
 				<input class="f-input md full" type="text" ng-model="item.email">
 			</div>
 			<div class="col-md-3">
-				<i class="material-icons" ng-if="$index == contestCreate.stepThree.invites.length -1" ng-click="addInvitee()">add_circle</i>
-				<i class="material-icons" ng-if="$index != contestCreate.stepThree.invites.length -1" ng-click="removeInvitee($index)">close</i>
+				<i class="material-icons" ng-if="$index == contestCreate.stepThree.inviteeDTOs.length -1" ng-click="addInvitee()">add_circle</i>
+				<i class="material-icons" ng-if="$index != contestCreate.stepThree.inviteeDTOs.length -1" ng-click="removeInvitee($index)">close</i>
 			</div>
 		</div>
 	</form>
