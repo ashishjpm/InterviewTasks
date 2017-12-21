@@ -12,6 +12,7 @@
 			<div
 				class="col-md-4"
 				ng-repeat="item in adminContest.list"
+				ng-click="adminContest.getResult(item)"
 				ng-if="adminContest.typeSelected == 'All' || adminContest.typeSelected == item.status">
 					<div class="f-card">
 						<div class="cart-title">{{item.name}}</div>

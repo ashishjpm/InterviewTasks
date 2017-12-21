@@ -16,6 +16,7 @@
             $scope.root.admin.showAddBtn = false;
             $scope.root.adminSelected = "Contest Result";
             $scope.contestResult.data = {};
+            $scope.contestResult.contestName = localStorage.getItem('contestName');
             getContestResult();           
         }
 
@@ -27,6 +28,10 @@
                 },
                 function(err){console.log(err);}
             );
+        }
+
+        $scope.contestResult.backToList = function(){
+            $state.go('admin.contest');
         }
 
         init();
