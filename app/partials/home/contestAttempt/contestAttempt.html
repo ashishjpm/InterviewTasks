@@ -49,10 +49,10 @@
 						<i ng-if="item" class="material-icons">done</i>
 						<i ng-if="!item" class="material-icons">close</i>
 					</span>
-					<span class="padding-left-10">Test case #{{$index}}</span>
+					<span class="padding-left-10">Test case #{{$index+1}}</span>
 				</div>
 			</div>
-			<div >
+			<div ng-show="contestAttempt.loader">
 				<div class="spinner">
 				  <div class="cube1"></div>
 				  <div class="cube2"></div>

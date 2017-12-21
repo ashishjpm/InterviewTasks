@@ -45,7 +45,7 @@
         }
 
         function getQueDetails(){
-            UserService.getContestQuestions(71).then(
+            UserService.getContestQuestions($scope.root.activeContest).then(
                 function(response){
                     $scope.contestAttempt.queDetails = response.data.responseObject.contestQuestionDTOs;
                     $scope.contestAttempt.currentIndex = 0;
@@ -138,7 +138,7 @@
                 }
             );
         }
-        
+
         init();
     }]);
 }());

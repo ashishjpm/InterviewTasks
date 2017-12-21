@@ -41,6 +41,7 @@
                 url: AppConstant.api + 'questionresponse/'+ questionId + '/save-response',
                 method: 'POST',
                 data:[{
+                    "anserGiven":[],
                     "userId":user,
                     "contestId": contest,
                     "program": source,
