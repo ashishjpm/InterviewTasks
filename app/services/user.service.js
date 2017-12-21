@@ -51,19 +51,11 @@
             })
         }
 
-        function submitOptions(questionId, optionValue, marks, negativeMarks){
+        function submitOptions(reqBody, questionId){
             return $http({
                 url: AppConstant.api + 'questionresponse/'+ questionId + '/save-response',
                 method: 'POST',
-                data:[{
-                    "contestId": 10001,
-                    "answerGiven": [optionValue],
-                    "questionId": questionId,
-                    "timeTaken": 0,
-                    "marks": marks,
-                    "negativeMarks": negativeMarks,
-                    "questionType": "SINGLE_CORRECT"
-                }]
+                data: reqBody
             })
         }
 
