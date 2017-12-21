@@ -19,7 +19,7 @@
 			<button class="btn btn-iv-red lg pull-right" ng-click="contestAttempt.finishTest()">Finish</button>
 		</div>
 		<div ng-show="contestAttempt.currentQue.questionType == 'CODING'">
-			<div class="que-title title">
+			<div class="que-title">
 				{{contestAttempt.currentQue.questionTitle}}
 			</div>
 			<div class="que-statment">
@@ -61,7 +61,7 @@
 			</div>
 		</div>
 		<div ng-show="(contestAttempt.currentQue.questionType == 'SINGLE_CORRECT') || (contestAttempt.currentQue.questionType == 'MULTIPLE_CORRECT')">
-			<div class="que-title title">
+			<div class="que-title">
 				{{contestAttempt.currentQue.statement}}
 			</div>
 			<div class="options" ng-show="(contestAttempt.currentQue.questionType == 'SINGLE_CORRECT')">
