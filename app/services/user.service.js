@@ -52,6 +52,22 @@
             })
         }
 
+        function submitOptions(questionId, optionValue, marks, negativeMarks){
+            return $http({
+                url: AppConstant.api + 'questionresponse/'+ questionId + '/save-response',
+                method: 'POST',
+                data:[{
+                    "contestId": 10001,
+                    "answerGiven": [optionValue],
+                    "questionId": questionId,
+                    "timeTaken": 0,
+                    "marks": marks,
+                    "negativeMarks": negativeMarks,
+                    "questionType": "SINGLE_CORRECT"
+                }]
+            })
+        }
+
         function getContestDetail(id){
             return $http({
                 url: AppConstant.api + 'contest/' + id,
@@ -77,7 +93,8 @@
             getUserContestList: getUserContestList,
             testCode:testCode,
             submitCode:submitCode,
-            getContestQuestions: getContestQuestions
+            getContestQuestions: getContestQuestions,
+            submitOptions: submitOptions
         };
     });
 }());

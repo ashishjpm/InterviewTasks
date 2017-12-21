@@ -12,7 +12,6 @@
     	function($scope, $state, CommonService, UserService) {
         $scope.root.activeUser = window.localStorage.getItem('userId');
         $scope.root.activeContest = window.localStorage.getItem('contestId');
-
         $scope.contestAttempt = {};
 
         function init(){
@@ -29,6 +28,11 @@
             $scope.contestAttempt.currentQue = {};
             getLang();
             getQueDetails();
+            $timeout(function() {
+                $(document).ready(function(){
+                    $.material.init();
+                });
+            }, 0);
     	}
 
         function getLang(){
@@ -45,6 +49,11 @@
                 function(response){
                     $scope.contestAttempt.queDetails = response.data.responseObject.contestQuestionDTOs;
                     $scope.contestAttempt.currentQue = $scope.contestAttempt.queDetails[0];
+                    $timeout(function() {
+                        $(document).ready(function(){
+                            $.material.init();
+                        });
+                    }, 0);
                 },
                 function(err){console.log(err);}
             );
@@ -52,6 +61,11 @@
 
         $scope.contestAttempt.updateQue = function(question){
             $scope.contestAttempt.currentQue = question;
+            $timeout(function() {
+                $(document).ready(function(){
+                    $.material.init();
+                });
+            }, 0);
         }
 
     	function getOngoingAttemptList(){
@@ -80,6 +94,7 @@
             $scope.contestAttempt.testCaseResults=[];
             UserService.testCode(language, questionId, code).then(function (response) {
                 $scope.contestAttempt.loader = false;
+
                 $scope.contestAttempt.testCaseResults = response.data.responseObject;
             },function(err){$scope.contestAttempt.loader = false;})
         };
@@ -89,6 +104,7 @@
             var userId = $scope.root.activeUser;
             var code = myCodeMirror.getValue();
             var language = $scope.contestAttempt.language;
+
             var questionId = $scope.contestAttempt.currentQue.questionId;
             var contestId = $scope.contestAttempt.currentQue.contestId;
             UserService.submitCode(userId, contestId, language, questionId, code).then(
@@ -99,6 +115,18 @@
                 function(err){$scope.contestAttempt.loader = false;}
             )
         };
+
+        $scope.submitOptions = function(){
+            UserService.submitOptions($scope.contestAttempt.currentQue.questionId, $scope.contestAttempt.selectedSCQ, $scope.contestAttempt.currentQue.points, $scope.contestAttempt.currentQue.negativePoints).then(
+                function(response){
+                    console.log("success");
+                },
+                function(err){
+
+                }
+            );
+        }
+        
         init();
     }]);
 }());
