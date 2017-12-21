@@ -19,7 +19,18 @@
             	'completed' : false,
             	'unAttempted' : false
             }
+            $scope.contestAttempt.langData = [];
+            getLang();
     	}
+
+        function getLang(){
+            UserService.getLanguage().then(
+                function(response){
+                    $scope.contestAttempt.langData = response.data.responseObject;
+                },
+                function(err){console.log(err);}
+            );
+        }
 
     	function getOngoingAttemptList(){
     		$scope.contestAttempt.list = [];
