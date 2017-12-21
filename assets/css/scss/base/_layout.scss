@@ -81,7 +81,21 @@ header{
 	            display: block;
 	        }
 		}
+		&.user-dropdown{
+			&:hover .task-dropdown{
+	            @extend %transition-md;
+	            display: block;
+	        }
+		}
 	}
+	.user-logout{
+		position: unset !important;
+		margin-right: 28px;
+		.task-title{
+			font-size: medium;
+		}
+	}
+
 }
 
 section{
