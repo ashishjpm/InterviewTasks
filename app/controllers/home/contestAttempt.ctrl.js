@@ -8,11 +8,9 @@
 ;
 (function() {
  falcon
-    .controller('ContestAttemptCtrl', ['$scope', 'CommonService', 'UserService',
-    	function($scope, CommonService, UserService) {
-
-        $scope.contestAttempt = {};
-
+    .controller('ContestAttemptCtrl', ['$scope', '$state' ,'CommonService', 'UserService',
+    	function($scope, $state, CommonService, UserService) {
+    	$scope.contestAttempt = {};
         function init(){
             $scope.root.userSelected = "Ongoing Contest";
             $scope.contestAttempt.langData = [];
@@ -56,6 +54,12 @@
     		);
     	}
 
+
+        $scope.contestAttempt.finishTest=function(){
+            $state.go('home.contestList');
+        }
+
+
         $scope.submitCode = function(){
             var code = myCodeMirror.getValue();
             var language = $scope.contestAttempt.language;
@@ -63,6 +67,7 @@
                 console.log(response);
             })
         };
+
         init();
     }]);
 }());

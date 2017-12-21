@@ -48,6 +48,13 @@
             })
         }
 
+        function getCategories(){
+            return $http({
+                url: AppConstant.api + 'question/getCategories',
+                method : 'GET'
+            })
+        }
+
 
         return {
             getContestList: getContestList,
@@ -55,6 +62,7 @@
             completeSecondStep:addQuestionToContestTemplate,
             fetchContestQuestions : fetchContestQuestions,
             saveContestConfigration:saveConfiguration,
+            getCategories : getCategories
 
         };
     });

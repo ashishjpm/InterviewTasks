@@ -2,9 +2,13 @@
 	<span class="header-logo">
 		<img src="/assets/images/f_logo.jpeg" alt="">
 	</span>
-	<span class="task-select">
+	<span class="task-select admin-tab">
 		<span class="task-title">{{root.adminSelected}}</span>
 		<i class="material-icons">keyboard_arrow_down</i>
+		<div class="task-dropdown">
+			<div ui-sref="admin.contest">My Contest</div>
+			<div ui-sref="admin.question">My Questions</div>
+		</div>
 	</span>
 	<span 
 		class="add-new" 

@@ -32,15 +32,16 @@
         }
 
         function updateUserContestList(){
-            UserService.getContestList().then(
+            UserService.getUserContestList($scope.root.activeUser).then(
                 function(response){
                     $scope.contestList.list = [];
                     response.data.responseObject.forEach(function(contest){
                         var now = new Date();
                         $scope.contestList.list.push({
+                            id : contest.id,
                             name : contest.name,
-                            status : $scope.adminContest.type[Math.floor(Math.random() * 4)],
-                            participants : contest.participantCount,
+                            status : $scope.contestList.type[Math.floor(Math.random() * 4)],
+                            description : contest.description,
                             isActive : now.getTime() > contest.startDate,
                             startIn: covertTimeToString(contest.startDate - now.getTime()),
                             endsIn : covertTimeToString(contest.endDate - now.getTime())

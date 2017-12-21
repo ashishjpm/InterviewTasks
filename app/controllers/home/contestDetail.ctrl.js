@@ -21,7 +21,7 @@
 
         function getContestDetail(){
             //send api via $scope.root.user.currentContestDetail;
-            UserService.getContestDetail($scope.root.user.activeContestId).then(
+            UserService.getContestDetail($scope.root.user.currentContestDetail.id).then(
                 function(response){
                     $scope.contestDetail.details = response.data.responseObject;
                     $scope.contestDetail.details.startDate = CommonService.tsToDateString($scope.contestDetail.details.startDate);
