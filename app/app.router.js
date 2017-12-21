@@ -83,4 +83,10 @@ falcon
             templateUrl: 'app/partials/admin/questionCreate/questionCreate.html',
             controller: 'QuestionCreateCtrl'
         })
+    $stateProvider
+        .state('admin.result', {
+            url: '/result',
+            templateUrl: 'app/partials/admin/result/result.html',
+            controller: 'ContestResultCtrl'
+        })
 });
