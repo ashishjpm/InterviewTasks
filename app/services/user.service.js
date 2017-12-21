@@ -46,6 +46,7 @@
                     "contestId": contest,
                     "program": source,
                     "languageId":language,
+                    "questionType":"CODING",
                     "questionId": questionId,
                     "timeTaken": 0
                 }]

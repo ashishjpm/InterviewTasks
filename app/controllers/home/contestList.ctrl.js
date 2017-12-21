@@ -57,7 +57,6 @@
 
         $scope.contestList.getDetails = function(item){
             $scope.root.user.activeContest = item;
-            console.log('contest', $scope.root.user.activeContest);
             $scope.root.user.activeContestId = $scope.root.user.activeContest.id;
             window.localStorage.setItem('contestId', $scope.root.user.activeContestId);
             $state.go('home.contestDetail');

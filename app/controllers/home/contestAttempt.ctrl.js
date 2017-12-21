@@ -11,7 +11,7 @@
     .controller('ContestAttemptCtrl', ['$timeout','$scope', '$state' ,'CommonService', 'UserService',
     	function($timeout, $scope, $state, CommonService, UserService) {
         $scope.root.activeUser = window.localStorage.getItem('userId');
-        $scope.root.activeContest = window.localStorage.getItem('contestId');
+        $scope.root.activeContestId = window.localStorage.getItem('contestId');
         $scope.contestAttempt = {};
 
         function init(){
@@ -45,7 +45,7 @@
         }
 
         function getQueDetails(){
-            UserService.getContestQuestions($scope.root.activeContest).then(
+            UserService.getContestQuestions($scope.root.activeContestId).then(
                 function(response){
                     $scope.contestAttempt.queDetails = response.data.responseObject.contestQuestionDTOs;
                     $scope.contestAttempt.currentQue = $scope.contestAttempt.queDetails[0];
@@ -70,8 +70,8 @@
 
     	function getOngoingAttemptList(){
     		$scope.contestAttempt.list = [];
-            console.log("contestId", $scope.root.user.activeContest);
-    		UserService.getContestDetail($scope.root.user.activeContest).then(
+            console.log("contestId", $scope.root.user.activeContestId);
+    		UserService.getContestDetail($scope.root.user.activeContestId).then(
     			function(response){
     				$scope.contestAttempt.list = response.data.responseObject.contestQuestionDTOs;
     			},
@@ -100,7 +100,6 @@
         };
 
         $scope.submitCode = function(){
-            $scope.contestAttempt.loader = true;
             var userId = $scope.root.activeUser;
             var code = myCodeMirror.getValue();
             var language = $scope.contestAttempt.language;
@@ -109,10 +108,11 @@
             var contestId = $scope.contestAttempt.currentQue.contestId;
             UserService.submitCode(userId, contestId, language, questionId, code).then(
                 function (response) {
-                    $scope.contestAttempt.loader = false;
                     console.log(response);
                 },
-                function(err){$scope.contestAttempt.loader = false;}
+                function(err){
+                    $scope.contestAttempt.loader = false;
+                }
             )
         };
 
