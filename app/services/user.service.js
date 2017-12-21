@@ -78,6 +78,16 @@
                 method: 'GET'
             })
         }
+        function finishContest(userId, contestId){
+            return $http({
+                url: AppConstant.api + 'contest/submit/',
+                method: 'POST',
+                data: {
+                    userId: userId,
+                    contestId: contestId
+                }
+            })
+        }
         return {
             getContestDetail: getContestDetail,
             getContestList: getContestList,
@@ -86,7 +96,11 @@
             testCode:testCode,
             submitCode:submitCode,
             getContestQuestions: getContestQuestions,
+<<<<<<< Updated upstream
             submitOptions: submitOptions
+=======
+            finishContest: finishContest
+>>>>>>> Stashed changes
         };
     });
 }());
