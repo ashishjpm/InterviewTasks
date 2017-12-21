@@ -25,8 +25,14 @@
 
         function testCode(language, questionId, source){
             return $http({
-                url: AppConstant.api + 'engine/get-result?languageId='+language+'&questionId='+questionId+'&source='+source,
-                method: 'GET'
+                url: AppConstant.api + 'engine/get-result',
+                method: 'POST',
+                data:{
+                    'languageId':language,
+                    'questionId':questionId,
+                    'source':source,
+                    'input':1
+                }
             })
         }
 
@@ -52,7 +58,7 @@
             getContestDetail: getContestDetail,
             getContestList: getContestList,
             getLanguage: getLanguage,
-            getUserContestList: getUserContestList
+            getUserContestList: getUserContestList,
             testCode:testCode,
             getContestQuestions: getContestQuestions
         };

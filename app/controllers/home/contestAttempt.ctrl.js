@@ -11,9 +11,11 @@
     .controller('ContestAttemptCtrl', ['$scope', '$state' ,'CommonService', 'UserService',
     	function($scope, $state, CommonService, UserService) {
     	$scope.contestAttempt = {};
+
         function init(){
             $scope.root.userSelected = "Ongoing Contest";
             $scope.contestAttempt.langData = [];
+            $scope.contestAttempt.testCaseResults=[];
             $scope.contestAttempt.activeQuestion = {
             	'inProgress' : true,
             	'completed' : false,
@@ -64,10 +66,9 @@
             var code = myCodeMirror.getValue();
             var language = $scope.contestAttempt.language;
             UserService.testCode(language, 54, code).then(function (response) {
-                console.log(response);
+                $scope.contestAttempt.testCaseResults = response.data.responseObject;
             })
         };
-
         init();
     }]);
 }());

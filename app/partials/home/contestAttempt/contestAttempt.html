@@ -40,7 +40,7 @@
 		</div>
 
 		<div class="test-case-result clearfix">
-			<div class="col-md-2" ng-repeat="item in [true,false,true] track by $index">
+			<div class="col-md-2" ng-repeat="item in contestAttempt.testCaseResults track by $index">
 				<span ng-class="['mark', {'correct': item}, {'failed': !item}]">
 					<i ng-if="item" class="material-icons">done</i>
 					<i ng-if="!item" class="material-icons">close</i>
