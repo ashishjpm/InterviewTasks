@@ -25,7 +25,7 @@
             $scope.adminQuestionDetails.value = {};
             AdminService.getQuestionDetails(localStorage.getItem('questionId')).then(
                 function(response){
-                    $scope.adminQuestionDetails.value = response;
+                    $scope.adminQuestionDetails.value = response.data.responseObject;
                 },
                 function(err){console.log(err);}
             );

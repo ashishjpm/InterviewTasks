@@ -32,8 +32,9 @@
         }
 
         $scope.adminQuestion.getQuestionDetails = function(question){
-            localStorage.setItem('questionId', question.id);
+            localStorage.setItem('questionId', question.questionId);
             localStorage.setItem('questionType', question.type);
+            $scope.root.options = question.optionsDtos.filter(item => item.questionId == question.questionId);
             $state.go('admin.questionDetail');
         }
 
