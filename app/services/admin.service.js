@@ -66,6 +66,12 @@
                 method: 'GET'
             })
         }
+        function getContestResult(id){
+            return $http({
+                url: AppConstant.api + '/quesstionresponse/view-contest/'+id,
+                method: 'GET'
+            })
+        }
 
         return {
             getContestList: getContestList,
@@ -75,7 +81,8 @@
             saveContestConfigration:saveConfiguration,
             getCategories : getCategories,
             getAllQuestions: getAllQuestions,
-            getQuestionDetails: getQuestionDetails
+            getQuestionDetails: getQuestionDetails,
+            getContestResult: getContestResult
         };
     });
 }());
