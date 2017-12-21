@@ -33,7 +33,6 @@
     }
 
     function updateAdminContestList(){
-        $scope.adminContest.list
         AdminService.getContestList().then(
             function(response){
                 $scope.adminContest.list = [];

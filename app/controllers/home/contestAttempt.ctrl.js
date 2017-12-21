@@ -8,8 +8,8 @@
 ;
 (function() {
  falcon
-    .controller('ContestAttemptCtrl', ['$scope', 'CommonService', 'UserService',
-    	function($scope, CommonService, UserService) {
+    .controller('ContestAttemptCtrl', ['$scope', '$state' ,'CommonService', 'UserService',
+    	function($scope, $state, CommonService, UserService) {
     	$scope.contestAttempt = {};
 
     	function init(){
@@ -43,6 +43,10 @@
     			}
     		);
     	}
+
+        $scope.contestAttempt.finishTest=function(){
+            $state.go('home.contestList');
+        }
 
         init();
     }]);

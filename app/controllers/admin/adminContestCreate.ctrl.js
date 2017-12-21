@@ -41,7 +41,7 @@
 
         $scope.contestCreate.fixedQueMeta = [
             {
-                category: "",
+                category: null,
                 level: "",
                 number: "",
             }
@@ -98,7 +98,17 @@
             }
         );
     }
+    $scope.fetchCategories = function(){
+        AdminService.getCategories().then(
+            function(response){
+                $scope.contestCreate.categoryList = response.data.responseObject;
+            },
+            function(err){
 
+            }
+        )
+    }
+$scope.fetchCategories();
     $scope.submit = function(){
         console.log($scope.contestCreate.currentState);
         if($scope.contestCreate.currentState == 1){
@@ -112,7 +122,7 @@
 
     $scope.addCategory = function(){
         $scope.contestCreate.fixedQueMeta.push({
-            category: "",
+            category: null,
             level: "",
             number: "",
         });

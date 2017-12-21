@@ -28,10 +28,17 @@
 	            method: 'GET',
 	        })
         }
+        function getUserContestList(emailId){
+            return $http({
+                url: AppConstant.api + 'user/view-contest/' + emailId,
+                method: 'GET'
+            })
+        }
         return {
             getContestDetail: getContestDetail,
             getContestList: getContestList,
-            getLanguage: getLanguage
+            getLanguage: getLanguage,
+            getUserContestList: getUserContestList
         };
     });
 }());

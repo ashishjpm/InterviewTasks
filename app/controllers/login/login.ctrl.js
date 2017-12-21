@@ -30,12 +30,14 @@
 //        			console.log(err);
 //        		}
 //    		);
-        
+            $scope.root.activeUser = $scope.login.username;
             if ($scope.login.username === 'admin') {
+
                 $state.go('admin.contest');
             }else {
                 $state.go('home.contestList');
             }
+
         }
 
         init();
