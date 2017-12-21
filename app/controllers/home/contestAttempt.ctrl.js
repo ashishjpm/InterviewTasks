@@ -17,6 +17,7 @@
 
         function init(){
             $scope.root.userSelected = "Ongoing Contest";
+            $scope.contestAttempt.loader = false;
             $scope.contestAttempt.langData = [];
             $scope.contestAttempt.testCaseResults=[];
             $scope.contestAttempt.activeQuestion = {
@@ -71,25 +72,32 @@
         }
 
         $scope.testCode = function(){
+            $scope.contestAttempt.loader = true;
             console.log('userid', $scope.root.activeUser);
             var code = myCodeMirror.getValue();
             var language = $scope.contestAttempt.language;
             var questionId = $scope.contestAttempt.currentQue.questionId;
             $scope.contestAttempt.testCaseResults=[];
             UserService.testCode(language, questionId, code).then(function (response) {
+                $scope.contestAttempt.loader = false;
                 $scope.contestAttempt.testCaseResults = response.data.responseObject;
-            })
+            },function(err){$scope.contestAttempt.loader = false;})
         };
 
         $scope.submitCode = function(){
+            $scope.contestAttempt.loader = true;
             var userId = $scope.root.activeUser;
             var code = myCodeMirror.getValue();
             var language = $scope.contestAttempt.language;
             var questionId = $scope.contestAttempt.currentQue.questionId;
             var contestId = $scope.contestAttempt.currentQue.contestId;
-            UserService.submitCode(userId, contestId, language, questionId, code).then(function (response) {
-                console.log(response);
-            })
+            UserService.submitCode(userId, contestId, language, questionId, code).then(
+                function (response) {
+                    $scope.contestAttempt.loader = false;
+                    console.log(response);
+                },
+                function(err){$scope.contestAttempt.loader = false;}
+            )
         };
         init();
     }]);
