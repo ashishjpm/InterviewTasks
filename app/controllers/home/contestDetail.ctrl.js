@@ -21,8 +21,7 @@
     	}
 
         function getContestDetail(){
-            console.log('contestId', $scope.root.user.activeContestId);
-            UserService.getContestDetail($scope.root.user.activeContestId).then(
+            UserService.getContestDetail(localStorage.getItem('contestId')).then(
                 function(response){
                     $scope.contestDetail.details = response.data.responseObject;
                     $scope.contestDetail.details.startDate = CommonService.tsToDateString($scope.contestDetail.details.startDate);
