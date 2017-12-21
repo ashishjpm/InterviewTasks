@@ -10,7 +10,7 @@
  falcon
     .controller('ContestListCtrl', ['$scope', '$state', 'CommonService', 'UserService',
     	function($scope, $state, CommonService, UserService) {
-        $scope.root.activeUser = $scope.root.activeUser || window.localStorage.getItem('userId');
+        $scope.root.activeUser = window.localStorage.getItem('userId');
     	$scope.contestList = {};
 
     	function init(){
