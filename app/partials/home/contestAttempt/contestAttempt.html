@@ -52,14 +52,14 @@
 					<span class="padding-left-10">Test case #{{$index}}</span>
 				</div>
 			</div>
-			<div ng-if="(contestAttempt.currentQue.questionType == 'SINGLE_CORRECT') || (contestAttempt.currentQue.questionType == 'MULTIPLE_CORRECT')">
-				<div class="que-title title">
-					{{contestAttempt.currentQue.statement}}
-				</div>
-				<div class="options"></div>
-				<div class="margin-right-30 clearfix">
-					<button class="btn btn-iv-red lg pull-right margin-left-10">Submit</button>
-				</div>
+		</div>
+		<div ng-show="(contestAttempt.currentQue.questionType == 'SINGLE_CORRECT') || (contestAttempt.currentQue.questionType == 'MULTIPLE_CORRECT')">
+			<div class="que-title title">
+				{{contestAttempt.currentQue.statement}}
+			</div>
+			<div class="options"></div>
+			<div class="margin-right-30 clearfix">
+				<button class="btn btn-iv-red lg pull-right margin-left-10">Submit</button>
 			</div>
 		</div>
 	</div>
