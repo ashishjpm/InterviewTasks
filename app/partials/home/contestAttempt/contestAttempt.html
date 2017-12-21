@@ -44,14 +44,12 @@
 				<button class="btn btn-grey lg pull-right" ng-click="testCode()">Run Test</button>
 			</div>
 			<div class="test-case-result clearfix">
-				<div class="test-case-result clearfix">
-					<div class="col-md-2" ng-repeat="item in contestAttempt.testCaseResults track by $index">
-						<span ng-class="['mark', {'correct': item}, {'failed': !item}]">
-							<i ng-if="item" class="material-icons">done</i>
-							<i ng-if="!item" class="material-icons">close</i>
-						</span>
-						<span class="padding-left-10">Test case #{{$index}}</span>
-					</div>
+				<div class="col-md-2" ng-repeat="item in contestAttempt.testCaseResults track by $index">
+					<span ng-class="['mark', {'correct': item}, {'failed': !item}]">
+						<i ng-if="item" class="material-icons">done</i>
+						<i ng-if="!item" class="material-icons">close</i>
+					</span>
+					<span class="padding-left-10">Test case #{{$index}}</span>
 				</div>
 			</div>
 			<div ng-if="(contestAttempt.currentQue.questionType == 'SINGLE_CORRECT') || (contestAttempt.currentQue.questionType == 'MULTIPLE_CORRECT')">
