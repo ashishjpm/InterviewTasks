@@ -41,7 +41,7 @@
                         $scope.contestList.list.push({
                             id : contest.id,
                             name : contest.name,
-                            status : $scope.contestList.type[Math.floor(Math.random() * 4)],
+                            status : contest.status,
                             description : contest.description,
                             isActive : now.getTime() > contest.startDate,
                             startIn: covertTimeToString(contest.startDate - now.getTime()),

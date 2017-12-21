@@ -68,7 +68,7 @@
         }
         function getContestResult(id){
             return $http({
-                url: AppConstant.api + '/quesstionresponse/view-contest/'+id,
+                url: AppConstant.api + 'questionresponse/view-contest/'+id,
                 method: 'GET'
             })
         }

@@ -123,7 +123,8 @@
 
         $scope.submitOptions = function(){
             var reqBody = [{
-                "contestId": 10001,
+                "userId":$scope.root.activeUser,
+                "contestId": $scope.contestAttempt.currentQue.contestId,
                 "answerGiven": [$scope.contestAttempt.selectedSCQ[$scope.contestAttempt.currentQue.questionId]],
                 "questionId": $scope.contestAttempt.currentQue.questionId,
                 "timeTaken": 0,
