@@ -8,7 +8,6 @@
 		</span>
 	</div>
 	<div class="admin-question">
-
 		<div class="list-header clearfix">
 			<div class="col-md-4">Title</div>
 			<div class="col-md-3">Difficulty</div>
@@ -16,10 +15,10 @@
 		</div>	
 
 		<div class="f-card-list" ng-repeat="item in adminQuestion.list">
-			<div class="col-md-4">{{item.title}}</div>
-			<div class="col-md-3">{{item.difficultyLevel}}</div>
-			<div class="col-md-3">{{item.type}}</div>
-			<div class="col-md-2 text-right">
+			<div class="col-md-4 elipsis">{{item.title}}</div>
+			<div class="col-md-3 elipsis">{{item.difficultyLevel}}</div>
+			<div class="col-md-3 elipsis">{{item.type}}</div>
+			<div class="col-md-2 text-right elipsis">
 				<button class="btn btn-grey" ng-click="adminQuestion.getQuestionDetails(item)">Details</button>
 			</div>
 		</div>
