@@ -1,6 +1,6 @@
 <div class="admin-contest-attempt">
 	<div class="sidebar">
-		<div ng-class="['question-list']" ng-repeat="item in [1,2,3,4]">
+		<div ng-class="['question-list']" ng-repeat="item in contestAttempt.queDetails">
 			<span 
 				ng-class="['mark',
 					{'correct': contestAttempt.activeQuestion.completed},
@@ -34,12 +34,12 @@
 			<div id="code"></div>
 		</div>
 
-		<div class="margin-right-30">
+		<div class="margin-right-30 clearfix">
+			<button class="btn btn-iv-red lg pull-right margin-left-10">Submit</button>
 			<button class="btn btn-white lg pull-right">Run Test</button>
-			<button class="btn btn-iv-red lg pull-right">Submit</button>
 		</div>
 
-		<div class="test-case-result">
+		<div class="test-case-result clearfix">
 			<div class="col-md-2" ng-repeat="item in [true,false,true] track by $index">
 				<span ng-class="['mark', {'correct': item}, {'failed': !item}]">
 					<i ng-if="item" class="material-icons">done</i>

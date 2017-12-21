@@ -31,7 +31,6 @@
             + padding(2, Math.floor(date.getMinutes()));
         }
 
-
         function updateUserContestList(){
             UserService.getContestList().then(
                 function(response){

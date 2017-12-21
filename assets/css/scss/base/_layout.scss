@@ -64,6 +64,8 @@ section{
 footer{
 	height: 30px;
 	line-height: 30px;
-	padding: 0px;
+	padding: 0px 30px;
 	background: $body-background;
+	text-align: right;
+	font-size: 12px;
 }
