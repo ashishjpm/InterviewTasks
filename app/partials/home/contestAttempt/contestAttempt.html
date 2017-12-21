@@ -1,51 +1,62 @@
 <div class="admin-contest-attempt">
 	<div class="sidebar">
-		<div ng-class="['question-list']" ng-repeat="item in contestAttempt.queDetails">
-			<span
-				ng-class="['mark',
-					{'correct': contestAttempt.activeQuestion.completed},
-					{'attempted':contestAttempt.activeQuestion.inProgress},
-					{'unAttempted':contestAttempt.activeQuestion.unAttempted}]">
-				<i class="material-icons">done</i>
-			</span>
-			<span class="question">{{item}}</span>
+		<div 
+			ng-class="['question-list', {'active': (item.id == contestAttempt.currentQue.id)}]" 
+			ng-repeat="item in contestAttempt.queDetails"
+			ng-click="contestAttempt.updateQue(item)">
+				<span 
+					ng-class="['mark',
+						{'correct': contestAttempt.activeQuestion.completed},
+						{'attempted':contestAttempt.activeQuestion.inProgress},
+						{'unAttempted':contestAttempt.activeQuestion.unAttempted}]">
+					<i class="material-icons">done</i>
+				</span>
+				<span class="question">{{item.questionTitle}}</span>
 		</div>
 	</div>
 	<div class="content">
 		<div class="timer">
 			<button class="btn btn-iv-red lg pull-right" ng-click="contestAttempt.finishTest()">Finish</button>
 		</div>
+		
+		<div ng-if="contestAttempt.currentQue.questionType == 'CODING'">
+			<div class="que-title title">
+				{{contestAttempt.currentQue.questionTitle}}
+			</div>
+			<div class="que-statment">
+				{{contestAttempt.currentQue.statement}}
+			</div>
+			<div class="lang-select text-right">
+				<select name="" id="" class="f-select margin-right-30" ng-model="contestAttempt.language">
+					<option ng-repeat="item in contestAttempt.langData" value="{{item.id}}">{{item.name}}</option>
+				</select>
+			</div>
 
-		<div class="que-title title">
-			5 horse problem
+			<div class="code-editor">
+				<div id="code"></div>
+			</div>
+			<div class="margin-right-30 clearfix">
+				<button class="btn btn-iv-red lg pull-right margin-left-10" ng-click="submitCode()">Submit</button>
+				<button class="btn btn-grey lg pull-right" ng-click="testCode()">Run Test</button>
+			</div>
+			<div class="test-case-result clearfix">
+				<div class="col-md-2" ng-repeat="item in [true,false,true] track by $index">
+					<span ng-class="['mark', {'correct': item}, {'failed': !item}]">
+						<i ng-if="item" class="material-icons">done</i>
+						<i ng-if="!item" class="material-icons">close</i>
+					</span>
+					<span class="padding-left-10">Test case #{{$index}}</span>
+				</div>
+			</div>
 		</div>
 
-		<div class="que-statment">
-			There are 25 horses. What is the minimum number of races needed so you can identify the fastest 3 horses? You can race up to 5 horses at a time, but you do not have a watch.
-		</div>
-
-		<div class="lang-select text-right">
-			<select name="" id="" class="f-select margin-right-30" ng-model="contestAttempt.language">
-				<option ng-repeat="item in contestAttempt.langData" value="{{item.id}}">{{item.name}}</option>
-			</select>
-		</div>
-
-		<div class="code-editor">
-			<div id="code"></div>
-		</div>
-
-		<div class="margin-right-30 clearfix">
-			<button class="btn btn-iv-red lg pull-right margin-left-10" ng-click="submitCode()">Submit</button>
-			<button class="btn btn-grey lg pull-right" ng-click="testCode()">Run Test</button>
-		</div>
-
-		<div class="test-case-result clearfix">
-			<div class="col-md-2" ng-repeat="item in [true,false,true] track by $index">
-				<span ng-class="['mark', {'correct': item}, {'failed': !item}]">
-					<i ng-if="item" class="material-icons">done</i>
-					<i ng-if="!item" class="material-icons">close</i>
-				</span>
-				<span class="padding-left-10">Test case #{{$index}}</span>
+		<div ng-if="(contestAttempt.currentQue.questionType == 'SINGLE_CORRECT') || (contestAttempt.currentQue.questionType == 'MULTIPLE_CORRECT')">
+			<div class="que-title title">
+				{{contestAttempt.currentQue.statement}}
+			</div>
+			<div class="options"></div>
+			<div class="margin-right-30 clearfix">
+				<button class="btn btn-iv-red lg pull-right margin-left-10">Submit</button>
 			</div>
 		</div>
 
@@ -56,4 +67,5 @@
 		  });
 		</script>
 	</div>
+
 </div>
