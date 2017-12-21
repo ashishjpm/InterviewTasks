@@ -10,7 +10,8 @@
  falcon
     .controller('ContestDetailCtrl', ['$scope', '$state' ,'CommonService', 'UserService',
     	function($scope, $state ,CommonService, UserService) {
-    	$scope.contestDetail = {};
+        $scope.root.user.activeContestId = window.localStorage.getItem('contestId');
+        $scope.contestDetail = {};
 
     	function init(){
             $scope.root.userSelected = "Contest Details";
@@ -20,8 +21,7 @@
     	}
 
         function getContestDetail(){
-            //send api via $scope.root.user.currentContestDetail;
-            UserService.getContestDetail($scope.root.user.currentContestDetail.id).then(
+            UserService.getContestDetail(localStorage.getItem('contestId')).then(
                 function(response){
                     $scope.contestDetail.details = response.data.responseObject;
                     $scope.contestDetail.details.startDate = CommonService.tsToDateString($scope.contestDetail.details.startDate);

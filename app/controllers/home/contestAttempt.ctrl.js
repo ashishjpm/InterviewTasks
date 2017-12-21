@@ -8,12 +8,15 @@
 ;
 (function() {
  falcon
-    .controller('ContestAttemptCtrl', ['$scope', '$state', '$timeout' ,'CommonService', 'UserService',
-    	function($scope, $state, $timeout, CommonService, UserService) {
-    	$scope.contestAttempt = {};
+    .controller('ContestAttemptCtrl', ['$scope', '$state' ,'CommonService', 'UserService',
+    	function($scope, $state, CommonService, UserService) {
+        $scope.root.activeUser = window.localStorage.getItem('userId');
+        $scope.root.activeContest = window.localStorage.getItem('contestId');
+        $scope.contestAttempt = {};
 
         function init(){
             $scope.root.userSelected = "Ongoing Contest";
+            $scope.contestAttempt.loader = false;
             $scope.contestAttempt.langData = [];
             $scope.contestAttempt.testCaseResults=[];
             $scope.contestAttempt.activeQuestion = {
@@ -42,7 +45,6 @@
         }
 
         function getQueDetails(){
-            // $scope.root.user.currentContestDetail.id
             UserService.getContestQuestions(71).then(
                 function(response){
                     $scope.contestAttempt.queDetails = response.data.responseObject.contestQuestionDTOs;
@@ -68,7 +70,8 @@
 
     	function getOngoingAttemptList(){
     		$scope.contestAttempt.list = [];
-    		UserService.getContestDetail($scope.root.user.activeContestId).then(
+            console.log("contestId", $scope.root.user.activeContest);
+    		UserService.getContestDetail($scope.root.user.activeContest).then(
     			function(response){
     				$scope.contestAttempt.list = response.data.responseObject.contestQuestionDTOs;
     			},
@@ -83,20 +86,34 @@
         }
 
         $scope.testCode = function(){
+            $scope.contestAttempt.loader = true;
+            console.log('userid', $scope.root.activeUser);
             var code = myCodeMirror.getValue();
             var language = $scope.contestAttempt.language;
+            var questionId = $scope.contestAttempt.currentQue.questionId;
             $scope.contestAttempt.testCaseResults=[];
-            UserService.testCode(language, 71, code).then(function (response) {
+            UserService.testCode(language, questionId, code).then(function (response) {
+                $scope.contestAttempt.loader = false;
+
                 $scope.contestAttempt.testCaseResults = response.data.responseObject;
-            })
+            },function(err){$scope.contestAttempt.loader = false;})
         };
 
         $scope.submitCode = function(){
+            $scope.contestAttempt.loader = true;
+            var userId = $scope.root.activeUser;
             var code = myCodeMirror.getValue();
             var language = $scope.contestAttempt.language;
-            UserService.submitCode(language, 71, code).then(function (response) {
-                console.log(response);
-            })
+
+            var questionId = $scope.contestAttempt.currentQue.questionId;
+            var contestId = $scope.contestAttempt.currentQue.contestId;
+            UserService.submitCode(userId, contestId, language, questionId, code).then(
+                function (response) {
+                    $scope.contestAttempt.loader = false;
+                    console.log(response);
+                },
+                function(err){$scope.contestAttempt.loader = false;}
+            )
         };
 
         $scope.submitOptions = function(){
