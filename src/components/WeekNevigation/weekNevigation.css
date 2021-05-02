@@ -1,0 +1,17 @@
+.week-nevigation-container {
+  height: 50px;
+  padding: 0 100px;
+}
+
+.week-nevigation-container .link {
+  display: inline-block;
+  padding: 30px 20px 0 0;
+  cursor: pointer;
+  text-decoration: underline;
+  color: #70757a;
+  font-weight: 500;
+}
+
+.week-nevigation-container .link:hover {
+  color: #1b73e7;;
+}

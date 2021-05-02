@@ -1,0 +1,23 @@
+.time-scale-container {
+  width: 100px;
+}
+.time-scale-card {
+  height: 100px;
+  position: relative;
+}
+.time-scale-card .time-text {
+  position: absolute;
+  line-height: 30px;
+  top: -17px;
+  text-align: right;
+  width: 80%;
+  display: inline-block;
+}
+.time-scale-card .time-text-border {
+  width: 15%;
+  display: inline-block;
+  height: 100%;
+  margin-left: 84%;
+  border-bottom: 1px solid;
+  border-right: 1px solid;
+}

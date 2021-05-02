@@ -1,0 +1,6 @@
+.time-table-continer{
+  height: calc( 100vh - 150px);
+  overflow: auto;
+  display: flex;
+  flex-wrap: wrap;
+}

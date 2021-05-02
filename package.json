@@ -1,26 +1,38 @@
 {
-  "name": "interviewTasks",
+  "name": "last9",
+  "version": "0.1.0",
   "private": true,
-  "version": "0.0.0",
-  "description": "Interview Tasks done by Ashish Mishra - UI Developer",
-  "main": "app.js",
-  "author": "Ashish Mishra <ashishjpm@gmail.com>",
-  "contributors": [
-    {
-      "name": "Ashish Mishra",
-      "email": "ashishjpm@gmail.com"
-    }
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/ashishjpm/interviewTasks.git"
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.12.0",
+    "@testing-library/react": "^11.2.6",
+    "@testing-library/user-event": "^12.8.3",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3",
+    "web-vitals": "^1.1.1"
   },
   "scripts": {
-    "start": "node app.js"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
-  "homepage": "https://github.com/ashishjpm/interviewTasks.git#readme",
-  "dependencies": {
-    "express": "^4.13.4"
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
   },
-  "devDependencies": {}
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
 }
